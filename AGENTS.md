@@ -15,15 +15,17 @@
 - Keep durable code, decisions, and reports in Git. Do not put secrets,
   credentials, large dependencies, or copied repositories in temporary paths.
 - Create a temporary directory or worktree only when isolation is needed.
-  When the lane is clean and terminal, remove its exact worktree and temporary
-  directory; stop and ask if work is active, held, dirty, or unknown.
+  A terminal result or `.done` marker alone never authorizes deletion. Remove
+  an exact worktree or temporary directory only with owner/controller
+  acceptance and explicit cleanup authority; preserve work that is active,
+  held, dirty, or unknown.
 - Update `CONTEXT.md` when current truth or the next action changes.
 - Keep `SPEC.md` small. A worker proceeds inside an approved SPEC and stops on
   a safety, scope, authorization, or evidence failure.
 
 ## Global Guidance
 
-When available, use `~/.codex/AGENTS.md` as the machine-wide baseline. For
-reusable guidance, load only the relevant Agent OS playbook; local repository
-rules and approved SPECs remain authoritative.
-
+When available, use `~/.agent/CORE.md` as the shared machine-wide operating
+contract. `~/.codex/AGENTS.md` is a Codex-specific adapter only. Agent OS is
+reusable guidance, never automatic project authority; local repository rules
+and approved SPECs remain authoritative.
