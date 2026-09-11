@@ -10,6 +10,17 @@ Do not start another planning round unless Amit explicitly asks for `plan`, `rev
 
 Amit is the decision-maker, not the copy/paste transport layer. ChatGPT and Codex should fetch the owning Issue, PR, comments, current HEAD, and relevant validation themselves when accessible.
 
+## Short Actor Names
+
+For fast dictation and handoffs:
+
+- `G` = ChatGPT.
+- `X` = Codex.
+
+Interpret these by sentence role, not capitalization alone. A standalone `g` remains the `go` continuation command; `G/g` used as an actor in a phrase means ChatGPT, for example `ask G to merge`. `X/x` used as an actor means Codex, for example `X must test`.
+
+Actor aliases are shorthand only. They never widen scope, execution authority, merge permission, or safety gates.
+
 ## Roles
 
 - Amit sets objectives, priorities, and hard stops.
