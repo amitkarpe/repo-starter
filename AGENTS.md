@@ -4,28 +4,24 @@
 
 1. `AGENTS.md`
 2. `CONTEXT.md`
-3. `SPEC.md` when work changes a trusted contract, release, environment, or
-   external system.
+3. `INIT.md` only when repository initialization is incomplete
+4. `CHATGPT.md` for ChatGPT/Codex/GitHub collaboration
+5. `ENV.md` when runtime, cloud, host, or tool facts matter
+6. `SPEC.md` before implementation, mutation, deployment, cleanup, or trusted-contract changes
 
 ## Rules
 
-- Follow KISS: one problem, one happy path, one command, one proof, one result.
-- Preserve existing work. Do not revert unrelated changes or use destructive
-  Git commands without explicit approval.
-- Keep durable code, decisions, and reports in Git. Do not put secrets,
-  credentials, large dependencies, or copied repositories in temporary paths.
-- Create a temporary directory or worktree only when isolation is needed.
-  A terminal result or `.done` marker alone never authorizes deletion. Remove
-  an exact worktree or temporary directory only with owner/controller
-  acceptance and explicit cleanup authority; preserve work that is active,
-  held, dirty, or unknown.
-- Update `CONTEXT.md` when current truth or the next action changes.
-- Keep `SPEC.md` small. A worker proceeds inside an approved SPEC and stops on
-  a safety, scope, authorization, or evidence failure.
+- Follow KISS: optimize for one useful outcome, not the smallest possible task.
+- Preserve existing work. Do not revert unrelated changes or use destructive Git actions without authority.
+- Keep durable code, decisions, and reports in Git. Never commit secrets, credentials, authentication state, or copied repositories.
+- Update `CONTEXT.md` when repository identity, current truth, active Issue/PR, or next action materially changes.
+- `SPEC.md` is the repository execution contract. Proceed inside an ACTIVE approved scope and stop on a genuine safety, scope, authorization, repository-identity, access, or validation failure.
+- Prefer one cohesive PR with related phases/tasks over micro-PRs. Small isolated fixes may remain small.
+- When the current objective is known, short continuation such as `go`, `g`, `.`, `Y`, or `yes` means execute/continue it within existing authority unless Amit explicitly selected plan/review/discussion mode.
+- Before cross-repo mutation, apply the repository-binding guard in `CHATGPT.md`.
 
 ## Global Guidance
 
-When available, use `~/.agent/CORE.md` as the shared machine-wide operating
-contract. `~/.codex/AGENTS.md` is a Codex-specific adapter only. Agent OS is
-reusable guidance, never automatic project authority; local repository rules
-and approved SPECs remain authoritative.
+When available, use `~/.agent/CORE.md` as the shared machine-wide operating contract and `~/.agent/HOST.md` for active host facts. Tool homes such as `~/.codex/` remain tool-specific adapters/runtime state.
+
+Agent OS is reusable guidance, never automatic project authority. Current user instruction plus this repository's `AGENTS.md`, `SPEC.md`, owning Issue/PR, and project context take precedence.
