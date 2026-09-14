@@ -7,14 +7,16 @@ One sentence explaining the problem this repository solves.
 1. Read `AGENTS.md` for repository rules and read order.
 2. Complete `INIT.md` once when the repository is first created from this template.
 3. Read `CONTEXT.md` for current-only project identity, truth, active Issue/PR, blocker, and next action.
-4. Read `ENV.md` when runtime, cloud, host, profile, or tool dependencies matter.
-5. Read `SPEC.md` before implementation, mutation, deployment, cleanup, or trusted-contract changes.
+4. Read `CHATGPT.md` for ChatGPT-Codex collaboration, handoffs, `go` semantics, and repository-mismatch protection.
+5. Read `ENV.md` when runtime, cloud, host, profile, or tool dependencies matter.
+6. Read `SPEC.md` before implementation, mutation, deployment, cleanup, or trusted-contract changes.
 
 ## Template Model
 
 Keep root contracts short and separate by responsibility:
 
 - `AGENTS.md` — router and core repository rules
+- `CHATGPT.md` — ChatGPT ↔ Codex collaboration
 - `CONTEXT.md` — current-only project/repository restart state
 - `SPEC.md` — execution authority and milestone contract
 - `INIT.md` — one-time short initialization interview
