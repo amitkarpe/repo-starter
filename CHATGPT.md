@@ -95,3 +95,17 @@ Do not infer authority from repository visibility. A private repository may be p
 Explicit no-merge, no-production-mutation, destructive, credential, public-exposure, publication, or security gates remain binding. Technical failures are blockers even when mutation is authorized.
 
 Never publish credentials, tokens, private keys, customer data, or raw sensitive infrastructure details.
+
+## Connector Safety Gate
+
+Treat a connector/platform safety block as a separate failure class from stale GitHub state, authentication/permission failures, validation errors, or approval prompts.
+
+For an already-authorized, bounded connector action:
+
+1. Re-read the exact repository, branch/PR, target object, and current SHA/state.
+2. Keep the requested scope, permissions, target, and safeguards unchanged.
+3. Retry the identical bounded action at most once.
+4. If it is blocked again, stop connector retries, report `BLOCKED_CONNECTOR_SAFETY`, and use the existing PR/Issue handoff to X/local tooling when that path is already authorized.
+5. Never widen permissions, weaken safeguards, change repository/branch, create a replacement handoff, or switch model/thinking effort merely to get past the gate.
+
+Do not assume Pro, Extra High, or another thinking mode caused a connector block. Higher reasoning effort can improve planning quality, but it does not override connector safety policy and is not a bypass mechanism.
