@@ -2,6 +2,9 @@
 
 Purpose: let Amit, ChatGPT, Codex, and repository workers deliver useful milestones with minimal handoff overhead.
 
+Canonical reusable guidance:
+https://github.com/amitkarpe/agent-os/blob/main/kb/playbooks/integrations/chatgpt-codex-collaboration-protocol.md
+
 ## Default Behavior
 
 When the current objective is known, `go`, `g`, `.`, `Y`, `yes`, or equivalent affirmative continuation means: fetch current durable GitHub state and execute the approved objective within existing authority and constraints.
@@ -62,6 +65,8 @@ ChatGPT may record when available:
 
 Repository identity, the active SPEC/Issue, and Amit's current instruction remain authoritative when session metadata is stale or absent.
 
+When working context is materially stale, incomplete, contradictory, or unsafe to reuse, rebuild from `AGENTS.md`, current-only `CONTEXT.md`, the active `SPEC.md` when relevant, the owning Issue/PR, and current HEAD/runtime truth as needed. A milestone boundary alone does not require a fresh session.
+
 ## Handoff
 
 Use the existing owning PR; if no PR exists, use the owning Issue. Do not create packet/outbox files for state already in GitHub.
@@ -76,6 +81,8 @@ Keep return handoffs compact:
 - `Next: <one action>`
 - `Accept: <one condition>` when needed
 
+When a handoff is presented to Amit for copy/paste into another ChatGPT, Codex, CLI agent, or session, put the complete handoff in one fenced Markdown block. GitHub Issue/PR comments may remain normal Markdown.
+
 ## Milestone And PR Economy
 
 Optimize for the smallest useful release package, not the smallest possible PR.
@@ -85,6 +92,8 @@ Prefer one cohesive PR containing roughly 2-3 related phases or several tightly 
 Do not split implementation, tests, docs, configuration, and directly related corrections into micro-PRs merely because individual edits are small. Real isolated defects, urgent safety fixes, and one-line corrections may still be small changes.
 
 Finish the approved package, validate it proportionally, then return one reviewable result. Keep corrections in the same PR unless scope or trust boundary materially changes.
+
+For recurring operational sequences, prefer repeatable repo-owned automation when practical. Use validation proportional to changed behavior and risk; avoid duplicate validators or broad test machinery when existing proof covers acceptance. Detailed reusable guidance belongs in Agent OS, not this starter.
 
 ## Execution And Safety
 
@@ -98,14 +107,7 @@ Never publish credentials, tokens, private keys, customer data, or raw sensitive
 
 ## Connector Safety Gate
 
-Treat a connector/platform safety block as a separate failure class from stale GitHub state, authentication/permission failures, validation errors, or approval prompts.
+This gate is mandatory for connector/platform actions. Canonical policy:
+https://github.com/amitkarpe/agent-os/blob/main/kb/policies/connector-safety-gate.md
 
-For an already-authorized, bounded connector action:
-
-1. Re-read the exact repository, branch/PR, target object, and current SHA/state.
-2. Keep the requested scope, permissions, target, and safeguards unchanged.
-3. Retry the identical bounded action at most once.
-4. If it is blocked again, stop connector retries, report `BLOCKED_CONNECTOR_SAFETY`, and use the existing PR/Issue handoff to X/local tooling when that path is already authorized.
-5. Never widen permissions, weaken safeguards, change repository/branch, create a replacement handoff, or switch model/thinking effort merely to get past the gate.
-
-Do not assume Pro, Extra High, or another thinking mode caused a connector block. Higher reasoning effort can improve planning quality, but it does not override connector safety policy and is not a bypass mechanism.
+For an already-authorized bounded connector action: verify the exact target and current state, retry the identical action at most once with scope and safeguards unchanged, then report `BLOCKED_CONNECTOR_SAFETY` and stop connector retries if it is blocked again. Never widen permissions, weaken safeguards, change repository/branch, create a replacement handoff, or switch model/thinking effort merely to bypass the gate.
