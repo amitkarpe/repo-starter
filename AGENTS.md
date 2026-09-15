@@ -19,6 +19,7 @@
 - Move completed/history detail to Git history, closed Issues/PRs, or `docs/history/` when the repository uses one.
 - `SPEC.md` is the repository execution contract. Proceed inside an ACTIVE approved scope and stop on a genuine safety, scope, authorization, repository-identity, access, or validation failure.
 - Prefer one cohesive PR with related phases/tasks over micro-PRs. Small isolated fixes may remain small.
+- Batch local workspace cleanup after roughly 5-10 merged PRs or a major milestone; do not clean after every PR. Preserve active work and referenced evidence. Remote branch or cloud-resource cleanup is separate authority.
 - When the current objective is known, short continuation such as `go`, `g`, `.`, `Y`, or `yes` means execute/continue it within existing authority unless Amit explicitly selected plan/review/discussion mode.
 - Before cross-repo mutation, apply the repository-binding guard in `CHATGPT.md`.
 
