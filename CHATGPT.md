@@ -92,6 +92,8 @@ Keep return handoffs compact:
 - `Next: <one action>`
 - `Accept: <one condition>` when needed
 
+Whenever a handoff is presented to Amit for copy/paste into another ChatGPT or Codex session, put the entire handoff in one fenced Markdown block. Do not scatter copy-required instructions outside that block. GitHub Issue/PR comments may remain normal Markdown; the user-facing handoff itself must be one copyable fenced block.
+
 ## Milestone And PR Economy
 
 Optimize for the smallest useful release package, not the smallest possible PR.
@@ -113,7 +115,6 @@ Agent-local shell work is acceptable for implementation, diagnosis, and proving 
 Validation should be proportional to the changed behavior and real risk.
 
 - Prefer focused tests, native syntax checks, provider/runtime validation, and exact readback.
-- Do not make ShellCheck a default requirement. Use it only when the repository SPEC, CI, or Amit explicitly requires it.
 - Do not block a milestone merely because an optional validator is absent when equivalent required proof is already available.
 - Avoid broad test matrices or duplicate validators that add time without improving confidence for the current milestone.
 
