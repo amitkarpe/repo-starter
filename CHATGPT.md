@@ -62,6 +62,22 @@ ChatGPT may record when available:
 
 Repository identity, the active SPEC/Issue, and Amit's current instruction remain authoritative when session metadata is stale or absent.
 
+## Fresh Session / Context Refresh
+
+Prefer a fresh ChatGPT/Codex session after a major milestone or when the working session is materially stale, especially after weeks of unrelated work.
+
+A fresh session should rebuild context in this order:
+
+1. `AGENTS.md`;
+2. `CONTEXT.md`;
+3. `SPEC.md` when implementation/mutation authority matters;
+4. owning Issue/PR and latest relevant handoff/comment;
+5. current branch/HEAD and local/runtime state only when needed.
+
+GitHub/repository truth wins over old conversational memory. If `CONTEXT.md` disagrees with current GitHub state, treat `CONTEXT.md` as stale, reconcile it in the owning work, and do not carry the stale story forward.
+
+Use a temporary bootstrap/handoff file only when Amit explicitly asks for one or when a new session cannot otherwise reconstruct the active state. Once the new session is synchronized, prefer the normal durable model again: current-only `CONTEXT.md` plus Issue/PR handoffs.
+
 ## Handoff
 
 Use the existing owning PR; if no PR exists, use the owning Issue. Do not create packet/outbox files for state already in GitHub.
@@ -86,6 +102,21 @@ Do not split implementation, tests, docs, configuration, and directly related co
 
 Finish the approved package, validate it proportionally, then return one reviewable result. Keep corrections in the same PR unless scope or trust boundary materially changes.
 
+## Repo-Owned Execution
+
+Prefer repeatable repo-owned automation over agent-specific manual command chains. When G or X repeatedly performs the same operational sequence, move that sequence into a deterministic script, CI workflow, or cloud-native orchestration path so both agents can use the same bounded execution surface.
+
+Agent-local shell work is acceptable for implementation, diagnosis, and proving a path, but it should not remain the only routine execution method when the repository can own the workflow safely.
+
+## Validation Economy
+
+Validation should be proportional to the changed behavior and real risk.
+
+- Prefer focused tests, native syntax checks, provider/runtime validation, and exact readback.
+- Do not make ShellCheck a default requirement. Use it only when the repository SPEC, CI, or Amit explicitly requires it.
+- Do not block a milestone merely because an optional validator is absent when equivalent required proof is already available.
+- Avoid broad test matrices or duplicate validators that add time without improving confidence for the current milestone.
+
 ## Execution And Safety
 
 `SPEC.md` is the repository execution contract. An ACTIVE SPEC/Issue may grant standing authority for explicitly bounded work, including personal lab cloud mutations, without repeated resource-by-resource approval.
@@ -97,6 +128,8 @@ Explicit no-merge, no-production-mutation, destructive, credential, public-expos
 Never publish credentials, tokens, private keys, customer data, or raw sensitive infrastructure details.
 
 ## Connector Safety Gate
+
+This gate is mandatory for connector/platform actions in every repository that adopts this collaboration model.
 
 Treat a connector/platform safety block as a separate failure class from stale GitHub state, authentication/permission failures, validation errors, or approval prompts.
 
