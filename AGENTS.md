@@ -20,9 +20,9 @@
 - `SPEC.md` is the repository execution contract. Proceed inside an ACTIVE approved scope and stop on a genuine safety, scope, authorization, repository-identity, access, or validation failure.
 - Prefer one cohesive PR with related phases/tasks over micro-PRs. Small isolated fixes may remain small.
 - Batch local workspace cleanup after roughly 5-10 merged PRs or a major milestone; do not clean after every PR. Preserve active work and referenced evidence. Remote branch or cloud-resource cleanup is separate authority.
-- Prefer a fresh agent session after a major milestone or when working context is materially stale. Rebuild context from repo/GitHub truth; old conversation/session memory is not authoritative.
-- Use proportional validation: prefer focused tests plus native syntax, provider, runtime, and exact-readback checks that match the changed behavior and risk; avoid duplicate validators that add little confidence.
-- The `Connector Safety Gate` in `CHATGPT.md` is mandatory for connector/platform actions. Never bypass a connector safety block by widening scope, weakening safeguards, changing repository/branch, or switching model/thinking effort.
+- When context is materially stale, incomplete, contradictory, or unsafe to reuse, rebuild it from current repository/GitHub truth instead of relying on old conversation memory.
+- Use proportional validation that matches changed behavior and risk; avoid duplicate validators that add little confidence.
+- The Connector Safety Gate in `CHATGPT.md` is mandatory for connector/platform actions.
 - When the current objective is known, short continuation such as `go`, `g`, `.`, `Y`, or `yes` means execute/continue it within existing authority unless Amit explicitly selected plan/review/discussion mode.
 - Before cross-repo mutation, apply the repository-binding guard in `CHATGPT.md`.
 
