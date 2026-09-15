@@ -2,6 +2,9 @@
 
 Purpose: let Amit, ChatGPT, Codex, and repository workers deliver useful milestones with minimal handoff overhead.
 
+Canonical reusable guidance:
+https://github.com/amitkarpe/agent-os/blob/main/kb/playbooks/integrations/chatgpt-codex-collaboration-protocol.md
+
 ## Default Behavior
 
 When the current objective is known, `go`, `g`, `.`, `Y`, `yes`, or equivalent affirmative continuation means: fetch current durable GitHub state and execute the approved objective within existing authority and constraints.
@@ -62,21 +65,7 @@ ChatGPT may record when available:
 
 Repository identity, the active SPEC/Issue, and Amit's current instruction remain authoritative when session metadata is stale or absent.
 
-## Fresh Session / Context Refresh
-
-Prefer a fresh ChatGPT/Codex session after a major milestone or when the working session is materially stale, especially after weeks of unrelated work.
-
-A fresh session should rebuild context in this order:
-
-1. `AGENTS.md`;
-2. `CONTEXT.md`;
-3. `SPEC.md` when implementation/mutation authority matters;
-4. owning Issue/PR and latest relevant handoff/comment;
-5. current branch/HEAD and local/runtime state only when needed.
-
-GitHub/repository truth wins over old conversational memory. If `CONTEXT.md` disagrees with current GitHub state, treat `CONTEXT.md` as stale, reconcile it in the owning work, and do not carry the stale story forward.
-
-Use a temporary bootstrap/handoff file only when Amit explicitly asks for one or when a new session cannot otherwise reconstruct the active state. Once the new session is synchronized, prefer the normal durable model again: current-only `CONTEXT.md` plus Issue/PR handoffs.
+When working context is materially stale, incomplete, contradictory, or unsafe to reuse, rebuild from `AGENTS.md`, current-only `CONTEXT.md`, the active `SPEC.md` when relevant, the owning Issue/PR, and current HEAD/runtime truth as needed. A milestone boundary alone does not require a fresh session.
 
 ## Handoff
 
@@ -92,7 +81,7 @@ Keep return handoffs compact:
 - `Next: <one action>`
 - `Accept: <one condition>` when needed
 
-Whenever a handoff is presented to Amit for copy/paste into another ChatGPT or Codex session, put the entire handoff in one fenced Markdown block. Do not scatter copy-required instructions outside that block. GitHub Issue/PR comments may remain normal Markdown; the user-facing handoff itself must be one copyable fenced block.
+When a handoff is presented to Amit for copy/paste into another ChatGPT, Codex, CLI agent, or session, put the complete handoff in one fenced Markdown block. GitHub Issue/PR comments may remain normal Markdown.
 
 ## Milestone And PR Economy
 
@@ -104,19 +93,7 @@ Do not split implementation, tests, docs, configuration, and directly related co
 
 Finish the approved package, validate it proportionally, then return one reviewable result. Keep corrections in the same PR unless scope or trust boundary materially changes.
 
-## Repo-Owned Execution
-
-Prefer repeatable repo-owned automation over agent-specific manual command chains. When G or X repeatedly performs the same operational sequence, move that sequence into a deterministic script, CI workflow, or cloud-native orchestration path so both agents can use the same bounded execution surface.
-
-Agent-local shell work is acceptable for implementation, diagnosis, and proving a path, but it should not remain the only routine execution method when the repository can own the workflow safely.
-
-## Validation Economy
-
-Validation should be proportional to the changed behavior and real risk.
-
-- Prefer focused tests, native syntax checks, provider/runtime validation, and exact readback.
-- Do not block a milestone merely because an optional validator is absent when equivalent required proof is already available.
-- Avoid broad test matrices or duplicate validators that add time without improving confidence for the current milestone.
+For recurring operational sequences, prefer repeatable repo-owned automation when practical. Use validation proportional to changed behavior and risk; avoid duplicate validators or broad test machinery when existing proof covers acceptance. Detailed reusable guidance belongs in Agent OS, not this starter.
 
 ## Execution And Safety
 
@@ -130,16 +107,7 @@ Never publish credentials, tokens, private keys, customer data, or raw sensitive
 
 ## Connector Safety Gate
 
-This gate is mandatory for connector/platform actions in every repository that adopts this collaboration model.
+This gate is mandatory for connector/platform actions. Canonical policy:
+https://github.com/amitkarpe/agent-os/blob/main/kb/policies/connector-safety-gate.md
 
-Treat a connector/platform safety block as a separate failure class from stale GitHub state, authentication/permission failures, validation errors, or approval prompts.
-
-For an already-authorized, bounded connector action:
-
-1. Re-read the exact repository, branch/PR, target object, and current SHA/state.
-2. Keep the requested scope, permissions, target, and safeguards unchanged.
-3. Retry the identical bounded action at most once.
-4. If it is blocked again, stop connector retries, report `BLOCKED_CONNECTOR_SAFETY`, and use the existing PR/Issue handoff to X/local tooling when that path is already authorized.
-5. Never widen permissions, weaken safeguards, change repository/branch, create a replacement handoff, or switch model/thinking effort merely to get past the gate.
-
-Do not assume Pro, Extra High, or another thinking mode caused a connector block. Higher reasoning effort can improve planning quality, but it does not override connector safety policy and is not a bypass mechanism.
+For an already-authorized bounded connector action: verify the exact target and current state, retry the identical action at most once with scope and safeguards unchanged, then report `BLOCKED_CONNECTOR_SAFETY` and stop connector retries if it is blocked again. Never widen permissions, weaken safeguards, change repository/branch, create a replacement handoff, or switch model/thinking effort merely to bypass the gate.
