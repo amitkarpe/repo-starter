@@ -65,7 +65,13 @@ ChatGPT may record when available:
 
 Repository identity, the active SPEC/Issue, and Amit's current instruction remain authoritative when session metadata is stale or absent.
 
-When working context is materially stale, incomplete, contradictory, or unsafe to reuse, rebuild from `AGENTS.md`, current-only `CONTEXT.md`, the active `SPEC.md` when relevant, the owning Issue/PR, and current HEAD/runtime truth as needed. A milestone boundary alone does not require a fresh session.
+## Context Loading Economy
+
+PR is the execution packet. The latest relevant comment is the delta. Fetch current HEAD before acting.
+
+Do not reread all repository context files on every handoff. Reload broader context only when the worker lacks usable repository context, governing instructions materially changed, repository/objective identity is ambiguous, current context is stale/incomplete/contradictory/unsafe, or a new authority/safety domain requires it.
+
+A milestone boundary or new PR number alone is not a reload trigger. The `AGENTS.md` Bootstrap / Recovery Order is for cold start or recovery, not routine continuation.
 
 ## Handoff
 
