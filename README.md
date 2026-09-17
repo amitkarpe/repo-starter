@@ -4,7 +4,9 @@ One sentence explaining the problem this repository solves.
 
 ## Start Here
 
-1. Read `AGENTS.md` for repository rules and read order.
+Use this order for cold start, recovery, or materially changed governing context. For normal continuation, use the owning Issue/PR, latest relevant authorized delta, and current HEAD; reload broader context only when a reload trigger applies.
+
+1. Read `AGENTS.md` for repository rules and bootstrap/recovery order.
 2. Complete `INIT.md` once when the repository is first created from this template.
 3. Read `CONTEXT.md` for current-only project identity, truth, active Issue/PR, blocker, and next action.
 4. Read `CHATGPT.md` for ChatGPT-Codex collaboration, handoffs, `go` semantics, and repository-mismatch protection.

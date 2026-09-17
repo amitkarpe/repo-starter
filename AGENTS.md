@@ -1,6 +1,8 @@
 # AGENTS.md
 
-## Read Order
+## Bootstrap / Recovery Order
+
+Use this order for cold start or recovery, not as a mandatory reread before every PR, handoff, or continuation.
 
 1. `AGENTS.md`
 2. `CONTEXT.md`
