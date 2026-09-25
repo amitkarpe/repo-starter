@@ -24,7 +24,7 @@ Use this order for cold start or recovery, not as a mandatory reread before ever
 - Batch local workspace cleanup after roughly 5-10 merged PRs or a major milestone; do not clean after every PR. Preserve active work and referenced evidence. Remote branch or cloud-resource cleanup is separate authority.
 - When context is materially stale, incomplete, contradictory, or unsafe to reuse, rebuild it from current repository/GitHub truth instead of relying on old conversation memory.
 - Use proportional validation that matches changed behavior and risk; avoid duplicate validators that add little confidence.
-- Do not introduce GitHub-hosted runners such as `ubuntu-latest`; use the repository's existing approved validation substrate, or keep CI manual/disabled until one exists.
+- Public repositories may use standard GitHub-hosted runners such as `ubuntu-latest`. Private repositories should avoid them by default and use the repository's existing approved validation substrate when available.
 - The Connector Safety Gate in `CHATGPT.md` is mandatory for connector/platform actions.
 - When the current objective is known, short continuation such as `go`, `g`, `.`, `Y`, or `yes` means execute/continue it within existing authority unless Amit explicitly selected plan/review/discussion mode.
 - Before cross-repo mutation, apply the repository-binding guard in `CHATGPT.md`.
