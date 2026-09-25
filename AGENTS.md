@@ -23,8 +23,6 @@ Use this order for cold start or recovery, not as a mandatory reread before ever
 - Prefer one cohesive PR with related phases/tasks over micro-PRs. Small isolated fixes may remain small.
 - Batch local workspace cleanup after roughly 5-10 merged PRs or a major milestone; do not clean after every PR. Preserve active work and referenced evidence. Remote branch or cloud-resource cleanup is separate authority.
 - When context is materially stale, incomplete, contradictory, or unsafe to reuse, rebuild it from current repository/GitHub truth instead of relying on old conversation memory.
-- Use proportional validation that matches changed behavior and risk; avoid duplicate validators that add little confidence.
-- Public repositories may use standard GitHub-hosted runners such as `ubuntu-latest`. Private repositories should avoid them by default and use the repository's existing approved validation substrate when available.
 - The Connector Safety Gate in `CHATGPT.md` is mandatory for connector/platform actions.
 - When the current objective is known, short continuation such as `go`, `g`, `.`, `Y`, or `yes` means execute/continue it within existing authority unless Amit explicitly selected plan/review/discussion mode.
 - Before cross-repo mutation, apply the repository-binding guard in `CHATGPT.md`.
@@ -34,3 +32,8 @@ Use this order for cold start or recovery, not as a mandatory reread before ever
 When available, use `~/.agent/CORE.md` as the shared machine-wide operating contract and `~/.agent/HOST.md` for active host facts. Tool homes such as `~/.codex/` remain tool-specific adapters/runtime state.
 
 Agent OS is reusable guidance, never automatic project authority. Current user instruction plus this repository's `AGENTS.md`, `SPEC.md`, owning Issue/PR, and project context take precedence.
+
+## Portfolio Economy Defaults
+
+- Testing: default to **zero new tests**. Use the smallest existing validation that can prove the change. Add or modify tests only for a real uncovered regression, contract, security boundary, failure mode, or high-signal isolated logic. Once required checks pass and the changed behavior is proven, **stop**.
+- Runners: public repositories may use standard GitHub-hosted runners such as `ubuntu-latest`. Private repositories should avoid GitHub-hosted runners by default and reuse an existing approved CodeBuild/CodePipeline or CodeBuild-hosted Actions runner; do not create new CI infrastructure merely to replace a free public runner.
