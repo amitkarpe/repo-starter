@@ -77,6 +77,12 @@ A milestone boundary or new PR number alone is not a reload trigger. The `AGENTS
 
 Use the existing owning PR; if no PR exists, use the owning Issue. Do not create packet/outbox files for state already in GitHub.
 
+Prefer direct secure G -> F/X bridge dispatch when available. Amit is not the normal copy/paste transport layer.
+
+After a successful bridge dispatch, report only the compact dispatch receipt needed by Amit; do not also produce a manual handoff block or generic next-action menu.
+
+Only when direct transport is unavailable, degraded, blocked, or intentionally not used, present the complete manual `HANDOFF: CODEX` as one fenced Markdown block. Keep it self-contained and point to the owning Issue/PR rather than duplicating a long mission contract.
+
 Before acting, fetch the current PR HEAD and latest relevant handoff/comment. Reconcile stale state before implementation.
 
 Keep return handoffs compact:
