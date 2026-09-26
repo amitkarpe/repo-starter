@@ -1,29 +1,47 @@
 # AGENTS.md
 
-## Bootstrap / Recovery Order
+## Agent Entry And Read Contract
 
-Use this order for cold start or recovery, not as a mandatory reread before every PR, handoff, or continuation.
+`AGENTS.md` is the universal agent entry point. Use it to decide what else must be loaded; do not treat every repository file as mandatory context.
+
+### Cold start / recovery
+
+Use this order when the agent has no reliable current context, is recovering from stale/contradictory state, or governing context materially changed:
 
 1. `AGENTS.md`
-2. `CONTEXT.md`
-3. `INIT.md` only when repository initialization is incomplete
-4. `CHATGPT.md` for ChatGPT/Codex/GitHub collaboration
-5. `ENV.md` when runtime, cloud, host, or tool facts matter
-6. `SPEC.md` before implementation, mutation, deployment, cleanup, or trusted-contract changes
+2. the owning GitHub Issue/PR when active work exists
+3. `CONTEXT.md` only when restart/current-state recovery is needed
+4. `SPEC.md` when implementation, mutation, deployment, cleanup, authority, or safety boundaries matter
+5. `ENV.md` when runtime, cloud, host, profile, or tool facts matter
+6. `CHATGPT.md` when ChatGPT/Codex adapter or repository-binding details matter
+7. `INIT.md` only while repository initialization is incomplete
+
+### Warm continuation
+
+Prefer the smallest current delta:
+
+```text
+owning Issue/PR
+-> latest relevant authorized comment/delta
+-> current HEAD/diff
+-> only changed or relevant governing files
+```
+
+Do not reread all root context files before every PR, handoff, or continuation.
 
 ## Rules
 
 - Follow KISS: optimize for one useful outcome, not the smallest possible task.
 - Preserve existing work. Do not revert unrelated changes or use destructive Git actions without authority.
 - Keep durable code, decisions, and reports in Git. Never commit secrets, credentials, authentication state, or copied repositories.
-- Keep `CONTEXT.md` current-only. It is the restart index, not project history.
-- Update `CONTEXT.md` when repository identity, current truth, active Issue/PR, blocker, or next action materially changes.
+- Keep `CONTEXT.md` current-only. It is a recovery index, not project history.
+- Update `CONTEXT.md` only when repository identity, current truth, active Issue/PR, blocker, or next action must be preserved for recovery.
 - Move completed/history detail to Git history, closed Issues/PRs, or `docs/history/` when the repository uses one.
-- `SPEC.md` is the repository execution contract. Proceed inside an ACTIVE approved scope and stop on a genuine safety, scope, authorization, repository-identity, access, or validation failure.
+- Use `SPEC.md` as the repository execution/authority contract when the work needs one. Proceed inside an ACTIVE approved scope and stop on a genuine safety, scope, authorization, repository-identity, access, or validation failure.
 - Prefer one cohesive PR with related phases/tasks over micro-PRs. Small isolated fixes may remain small.
 - Batch local workspace cleanup after roughly 5-10 merged PRs or a major milestone; do not clean after every PR. Preserve active work and referenced evidence. Remote branch or cloud-resource cleanup is separate authority.
 - When context is materially stale, incomplete, contradictory, or unsafe to reuse, rebuild it from current repository/GitHub truth instead of relying on old conversation memory.
-- The Connector Safety Gate in `CHATGPT.md` is mandatory for connector/platform actions.
+- The Connector Safety Gate referenced in `CHATGPT.md` is mandatory for connector/platform actions.
 - When the current objective is known, short continuation such as `go`, `g`, `.`, `Y`, or `yes` means execute/continue it within existing authority unless Amit explicitly selected plan/review/discussion mode.
 - Before cross-repo mutation, apply the repository-binding guard in `CHATGPT.md`.
 
@@ -31,9 +49,10 @@ Use this order for cold start or recovery, not as a mandatory reread before ever
 
 When available, use `~/.agent/CORE.md` as the shared machine-wide operating contract and `~/.agent/HOST.md` for active host facts. Tool homes such as `~/.codex/` remain tool-specific adapters/runtime state.
 
-Agent OS is reusable guidance, never automatic project authority. Current user instruction plus this repository's `AGENTS.md`, `SPEC.md`, owning Issue/PR, and project context take precedence.
+Agent OS is reusable guidance, never automatic project authority. Current user instruction plus this repository's local rules, applicable `SPEC.md`, owning Issue/PR, and project context take precedence.
 
 ## Portfolio Economy Defaults
 
-- Testing: default to **zero new tests**. Use the smallest existing validation that can prove the change. Add or modify tests only for a real uncovered regression, contract, security boundary, failure mode, or high-signal isolated logic. Once required checks pass and the changed behavior is proven, **stop**.
-- Runners: public repositories may use standard GitHub-hosted runners such as `ubuntu-latest`. Private repositories should avoid GitHub-hosted runners by default and reuse an existing approved CodeBuild/CodePipeline or CodeBuild-hosted Actions runner; do not create new CI infrastructure merely to replace a free public runner.
+Testing and runner economy follow the canonical [Agent OS Portfolio Economy Defaults](https://github.com/amitkarpe/agent-os/blob/main/AGENTS.md#portfolio-economy-defaults).
+
+Keep the full reusable rule there. Add repository-specific exceptions here only when this repository genuinely needs them.
