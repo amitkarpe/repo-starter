@@ -2,7 +2,7 @@
 
 Status: NOT_INITIALIZED
 
-> `CONTEXT.md` is current-only restart state. Do not keep milestone history, old resource IDs, completed plans, or chat transcripts here. Use Git history, closed Issues/PRs, or `docs/history/` for history.
+> `CONTEXT.md` is current-only recovery state. Do not keep milestone history, old resource IDs, completed plans, or chat transcripts here. Use Git history, closed Issues/PRs, or `docs/history/` for history.
 
 ## Project Identity
 
@@ -29,6 +29,6 @@ Status: NOT_INITIALIZED
 
 ## Restart
 
-A fresh ChatGPT session should normally need only:
+A fresh ChatGPT/Codex session should begin with `AGENTS.md` and the active Issue/PR when one exists.
 
-`@GitHub Read AGENTS.md, CONTEXT.md, active Issue/PR and continue.`
+Load `CONTEXT.md` only when current-state/recovery context is missing, stale, or needed to restore repository bindings. Then load any other conditional file required by the `AGENTS.md` read contract and continue.

@@ -1,9 +1,14 @@
-# ChatGPT-Codex Collaboration
+# ChatGPT-Codex Repository Adapter
 
-Purpose: let Amit, ChatGPT, Codex, and repository workers deliver useful milestones with minimal handoff overhead.
+Purpose: keep only repository-specific ChatGPT/Codex coordination details here while reusable policy remains canonical in Agent OS.
 
 Canonical reusable guidance:
-https://github.com/amitkarpe/agent-os/blob/main/kb/playbooks/integrations/chatgpt-codex-collaboration-protocol.md
+
+- Collaboration protocol: https://github.com/amitkarpe/agent-os/blob/main/kb/playbooks/integrations/chatgpt-codex-collaboration-protocol.md
+- Connector Safety Gate: https://github.com/amitkarpe/agent-os/blob/main/kb/policies/connector-safety-gate.md
+- Portfolio Economy Defaults: https://github.com/amitkarpe/agent-os/blob/main/AGENTS.md#portfolio-economy-defaults
+
+This file is an adapter/router, not a second copy of those policies. Repository-specific rules and authority still remain local.
 
 ## Default Behavior
 
@@ -24,23 +29,16 @@ Interpret these by sentence role, not capitalization alone. A standalone `g` rem
 
 Actor aliases are shorthand only. They never widen scope, execution authority, merge permission, or safety gates.
 
-## Roles
-
-- Amit sets objectives, priorities, and hard stops.
-- ChatGPT is the default controller/driver: understand intent, shape milestones, create/update Issues and PRs, review diffs, and directly complete small bounded GitHub-editable work when practical.
-- Codex/repository workers handle deeper implementation, local/runtime investigation, validation, and longer engineering packages.
-- GitHub Issue/PR/comments are the normal durable collaboration path.
-
-A handoff coordinates work; it does not widen repository, cloud, production, merge, destructive, security, or publication authority.
+Generic G/X role definitions, direct/delegated execution rules, handoff behavior, context-loading economy, milestone sizing, and validation economy follow the canonical Agent OS collaboration protocol above.
 
 ## Repository Binding Guard
 
-`CONTEXT.md` records the Primary Repository and optional Authorized Related Repositories.
+`CONTEXT.md` records the Primary Repository and optional Authorized Related Repositories when recovery state needs to preserve those bindings.
 
 Before a write, mutation, PR action, or implementation:
 
 1. resolve the repository that owns the current objective;
-2. compare it with the Primary Repository and any explicitly authorized related repositories;
+2. compare it with the Primary Repository and any explicitly authorized related repositories when those bindings are recorded;
 3. confirm that the current Issue/PR belongs to that objective.
 
 Reading or researching other repositories is allowed. Cross-repo writes are allowed when Amit explicitly requests them or the active SPEC/Issue clearly requires them.
@@ -63,63 +61,30 @@ ChatGPT may record when available:
 - Chat name: `<optional>`
 - Session ID or URL: `<optional>`
 
-Repository identity, the active SPEC/Issue, and Amit's current instruction remain authoritative when session metadata is stale or absent.
+Repository identity, the applicable SPEC/Issue, and Amit's current instruction remain authoritative when session metadata is stale or absent.
 
-## Context Loading Economy
+## Local Context And Handoff Rules
 
-PR is the execution packet. The latest relevant comment is the delta. Fetch current HEAD before acting.
+`AGENTS.md` owns the repository read contract. For warm continuation, use the owning Issue/PR, latest relevant authorized delta, current HEAD/diff, and only the governing files relevant to the task.
 
-Do not reread all repository context files on every handoff. Reload broader context only when the worker lacks usable repository context, governing instructions materially changed, repository/objective identity is ambiguous, current context is stale/incomplete/contradictory/unsafe, or a new authority/safety domain requires it.
+`CONTEXT.md` is current-only recovery state, not the normal execution packet and not project history.
 
-A milestone boundary or new PR number alone is not a reload trigger. The `AGENTS.md` Bootstrap / Recovery Order is for cold start or recovery, not routine continuation.
+Use the existing owning PR for implementation/review corrections; if no PR exists, use the owning Issue. Do not create packet/outbox files for state already recorded in GitHub.
 
-## Handoff
+When a manual copy/paste handoff is genuinely required, keep it self-contained and point back to the durable owning Issue/PR. The reusable handoff and direct G -> X/Factory rules are owned by the canonical Agent OS collaboration protocol.
 
-Use the existing owning PR; if no PR exists, use the owning Issue. Do not create packet/outbox files for state already in GitHub.
+## Local Execution Authority
 
-Prefer direct secure G -> F/X bridge dispatch when available. Amit is not the normal copy/paste transport layer.
-
-After a successful bridge dispatch, report only the compact dispatch receipt needed by Amit; do not also produce a manual handoff block or generic next-action menu.
-
-Only when direct transport is unavailable, degraded, blocked, or intentionally not used, present the complete manual `HANDOFF: CODEX` as one fenced Markdown block. Keep it self-contained and point to the owning Issue/PR rather than duplicating a long mission contract.
-
-Before acting, fetch the current PR HEAD and latest relevant handoff/comment. Reconcile stale state before implementation.
-
-Keep return handoffs compact:
-
-- `HANDOFF: CODEX` or `HANDOFF: CHATGPT`
-- `Head: <sha>` when relevant
-- `Result: PASS | PARTIAL | BLOCKED | FAIL | N/A`
-- `Next: <one action>`
-- `Accept: <one condition>` when needed
-
-When a handoff is presented to Amit for copy/paste into another ChatGPT, Codex, CLI agent, or session, put the complete handoff in one fenced Markdown block. GitHub Issue/PR comments may remain normal Markdown.
-
-## Milestone And PR Economy
-
-Optimize for the smallest useful release package, not the smallest possible PR.
-
-Prefer one cohesive PR containing roughly 2-3 related phases or several tightly coupled tasks when they share one outcome, architecture, trust boundary, and acceptance path. A focused engineering package may represent several hours of work; this is scope guidance, never a clock requirement.
-
-Do not split implementation, tests, docs, configuration, and directly related corrections into micro-PRs merely because individual edits are small. Real isolated defects, urgent safety fixes, and one-line corrections may still be small changes.
-
-Finish the approved package, validate it proportionally, then return one reviewable result. Keep corrections in the same PR unless scope or trust boundary materially changes.
-
-For recurring operational sequences, prefer repeatable repo-owned automation when practical. Use validation proportional to changed behavior and risk; avoid duplicate validators or broad test machinery when existing proof covers acceptance. Detailed reusable guidance belongs in Agent OS, not this starter.
-
-## Execution And Safety
-
-`SPEC.md` is the repository execution contract. An ACTIVE SPEC/Issue may grant standing authority for explicitly bounded work, including personal lab cloud mutations, without repeated resource-by-resource approval.
+`SPEC.md` is the repository execution/authority contract when the work requires one. An ACTIVE SPEC/Issue may grant standing authority for explicitly bounded work.
 
 Do not infer authority from repository visibility. A private repository may be personal or work; a public repository may still have strict mutation boundaries.
 
-Explicit no-merge, no-production-mutation, destructive, credential, public-exposure, publication, or security gates remain binding. Technical failures are blockers even when mutation is authorized.
+Explicit no-merge, production, destructive, credential, public-exposure, publication, security, and other applicable gates remain binding. Technical failures remain blockers even when mutation is otherwise authorized.
 
 Never publish credentials, tokens, private keys, customer data, or raw sensitive infrastructure details.
 
 ## Connector Safety Gate
 
-This gate is mandatory for connector/platform actions. Canonical policy:
-https://github.com/amitkarpe/agent-os/blob/main/kb/policies/connector-safety-gate.md
+Connector/platform actions follow the canonical Agent OS Connector Safety Gate linked above.
 
-For an already-authorized bounded connector action: verify the exact target and current state, retry the identical action at most once with scope and safeguards unchanged, then report `BLOCKED_CONNECTOR_SAFETY` and stop connector retries if it is blocked again. Never widen permissions, weaken safeguards, change repository/branch, create a replacement handoff, or switch model/thinking effort merely to bypass the gate.
+Repository-specific exceptions may narrow that policy but must not silently weaken or bypass it.
