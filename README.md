@@ -4,27 +4,33 @@ One sentence explaining the problem this repository solves.
 
 ## Start Here
 
-Use this order for cold start, recovery, or materially changed governing context. For normal continuation, use the owning Issue/PR, latest relevant authorized delta, and current HEAD; reload broader context only when a reload trigger applies.
+For agents, `AGENTS.md` is the single read router. It defines the cold-start/recovery order and when other repository contracts must be loaded.
 
-1. Read `AGENTS.md` for repository rules and bootstrap/recovery order.
-2. Complete `INIT.md` once when the repository is first created from this template.
-3. Read `CONTEXT.md` for current-only project identity, truth, active Issue/PR, blocker, and next action.
-4. Read `CHATGPT.md` for ChatGPT-Codex collaboration, handoffs, `go` semantics, and repository-mismatch protection.
-5. Read `ENV.md` when runtime, cloud, host, profile, or tool dependencies matter.
-6. Read `SPEC.md` before implementation, mutation, deployment, cleanup, or trusted-contract changes.
+For current work, prefer the owning GitHub Issue/PR and current HEAD. Load the other root files only for the responsibility they own:
+
+- `CONTEXT.md` — current-only recovery state when restart/current-state context is needed
+- `SPEC.md` — execution authority and milestone contract when implementation, mutation, deployment, cleanup, or safety boundaries matter
+- `ENV.md` — project runtime/tool/cloud dependencies when environment facts matter
+- `CHATGPT.md` — repository-specific ChatGPT/Codex adapter, shorthand, and repository-binding guard
+- `INIT.md` — one-time initialization only
+- `ROADMAP.md` — useful future direction, not current authority
+
+Do not use this README as a second copy of the agent bootstrap policy.
 
 ## Template Model
 
-Keep root contracts short and separate by responsibility:
+Keep root contracts separate by responsibility:
 
-- `AGENTS.md` — router and core repository rules
-- `CHATGPT.md` — ChatGPT ↔ Codex collaboration
-- `CONTEXT.md` — current-only project/repository restart state
-- `SPEC.md` — execution authority and milestone contract
+- `AGENTS.md` — universal agent entry/router and local repository rules
+- `CHATGPT.md` — thin repository-specific ChatGPT/Codex adapter
+- `CONTEXT.md` — current-only project/repository recovery state
+- `SPEC.md` — execution authority and milestone contract when needed
 - `INIT.md` — one-time short initialization interview
-- `ENV.md` — project runtime/tool/cloud dependencies
+- `ENV.md` — project runtime/tool/cloud dependencies when needed
 - `ROADMAP.md` — useful future milestones, not current authority
 
 Historical detail belongs in Git history, closed Issues/PRs, or `docs/history/` when needed — not in `CONTEXT.md`.
 
-Prefer one cohesive, reviewable PR containing related phases/tasks over micro-PRs. Reusable cross-project guidance belongs in Agent OS; machine-specific facts belong in the active `~/.agent/HOST.md` when available.
+Reusable cross-project policy belongs in Agent OS and should normally be referenced rather than recopied here. Machine-specific facts belong in the active `~/.agent/HOST.md` when available.
+
+Preserve useful local knowledge. Context-loading economy means reading the right file at the right time, not deleting information.
