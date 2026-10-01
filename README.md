@@ -8,6 +8,8 @@ For agents, `AGENTS.md` is the single read router. It defines the cold-start/rec
 
 For current work, prefer the owning GitHub Issue/PR and current HEAD. Load the other root files only for the responsibility they own:
 
+- `AI_NATIVE_SDLC.md` — proportional Intent -> Spec -> Plan -> Code/Test/Review lifecycle
+- `intent/README.md` — reusable Intent Gate, interview, acceptance, and first-intent record protocol
 - `CONTEXT.md` — current-only recovery state when restart/current-state context is needed
 - `SPEC.md` — execution authority and milestone contract when implementation, mutation, deployment, cleanup, or safety boundaries matter
 - `ENV.md` — project runtime/tool/cloud dependencies when environment facts matter
@@ -25,7 +27,7 @@ Keep root contracts separate by responsibility:
 - `CHATGPT.md` — thin repository-specific ChatGPT/Codex adapter
 - `CONTEXT.md` — current-only project/repository recovery state
 - `SPEC.md` — execution authority and milestone contract when needed
-- `INIT.md` — one-time short initialization interview
+- `INIT.md` — one-time first-intent bootstrap for a new repository
 - `ENV.md` — project runtime/tool/cloud dependencies when needed
 - `ROADMAP.md` — useful future milestones, not current authority
 
