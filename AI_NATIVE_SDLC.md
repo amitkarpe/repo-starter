@@ -13,6 +13,18 @@ Intent -> Spec -> Plan -> Code -> Tests/Evals -> PR/Review -> Deploy -> Observe 
 
 Human input should stay focused on outcome, constraints, approval boundaries, and meaningful review. AI should derive detailed requirements, implementation plans, code, tests, documentation, and evidence. Keep the process proportional: artifacts exist to improve correctness, safety, reproducibility, and continuation — not to create ceremony.
 
+## Research / Discovery Gate
+
+Before approving a meaningful Intent, check whether unresolved uncertainty could materially change the desired outcome, constraints, architecture, or acceptance.
+
+- **Research = outside-in** — learn the external technology/solution space: current capabilities, official patterns, alternatives, constraints, and reuse opportunities.
+- **Discovery = inside-out** — inspect the actual current repository/runtime/environment: topology, versions, configuration, integrations, dependencies, and operational truth.
+- If neither would materially change the Intent, skip the gate and continue.
+- If either is needed, do the minimum useful investigation, distinguish verified facts from assumptions, and feed the findings back into the Intent before approval.
+- Do not require separate `research.md` or `discovery.md` files. Keep durable findings in the owning Issue/PR or repository documentation only when they have continuing value.
+
+Tiny/local fixes normally skip this gate.
+
 ## Ten Contracts
 
 1. **Purpose** — `README.md` states why the repository exists, who it serves, and its important non-goals.
@@ -72,7 +84,9 @@ The change-specific `plan.md` defines how the approved specification will be imp
 
 ```text
 Originator's desired outcome
-  -> capture intent
+  -> capture draft intent
+  -> optional Research / Discovery Gate when uncertainty could change the intent
+  -> refine and approve intent
   -> AI derives specification
   -> human reviews outcome + boundaries
   -> AI derives implementation plan
