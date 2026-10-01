@@ -1,6 +1,6 @@
 # AI-Native SDLC v1
 
-Status: PROPOSED  
+Status: v1 (effective on merge)  
 Applies to: repositories created from `repo-starter`
 
 ## Principle
@@ -16,25 +16,25 @@ Human input should stay focused on outcome, constraints, approval boundaries, an
 ## Ten Contracts
 
 1. **Purpose** — `README.md` states why the repository exists, who it serves, and its important non-goals.
-2. **Intent** — meaningful work starts from the originator's problem, desired outcome, constraints, assumptions, and open questions.
+2. **Intent** — meaningful work starts from one authoritative intent record: the originator's problem, desired outcome, constraints, assumptions, and open questions, linked to the owning Issue, PR, and revision.
 3. **Specification** — AI converts approved intent into reviewable requirements, interfaces, environment assumptions, safety boundaries, and acceptance criteria.
 4. **Plan** — before significant implementation, define the change sequence, dependencies, validation, failure handling, rollback, and retained state.
 5. **Git is complete** — runtime work on EC2, Docker, AWS, local hosts, or other systems is not complete until the code, IaC, configuration, scripts, and instructions needed to reproduce it are committed.
 6. **Deterministic execution** — AI may reason probabilistically, but repeatable build, deploy, validation, remediation, cleanup, and promotion paths should graduate into repo-owned scripts, IaC, CI/CD, or provider-native automation.
-7. **Tests and CI** — prove the smallest meaningful acceptance surface, including representative negative/failure cases. CI proves repeatability of the revision; test count is not the objective.
+7. **Tests and CI** — prove the smallest meaningful acceptance surface, including representative negative/failure cases. CI proves only the configured checks on the exact tested revision; repeatability and runtime acceptance need their own relevant evidence. Test count is not the objective.
 8. **Safety and authority** — identity, repository, account, environment, target, permissions, mutation boundary, approval, cost, rollback, and cleanup must be explicit where relevant. Read first, change second; fail closed on uncertainty.
-9. **Evidence** — "done" requires revision + relevant tests + runtime/provider readback when state matters + acceptance result + cleanup/retention state. A successful command alone is not proof of the desired outcome.
-10. **Learning** — every meaningful escaped failure asks: "What permanent check would have prevented this?" Add the regression locally first; promote repeated cross-repo lessons to `repo-starter`, Agent OS, or a reusable skill.
+9. **Evidence** — "done" requires revision + relevant tests + runtime/provider readback when state matters + acceptance result + cleanup/retention state. A command success or delivery receipt is not execution or acceptance proof.
+10. **Learning** — every meaningful escaped failure asks: "What permanent check would have prevented this?" Add the regression in the project first. After sanitization and owner review, promote reusable lessons to Agent OS or a reusable skill; put only genuinely universal starter defaults in `repo-starter`.
 
 ## Artifact Rule
 
-Artifacts are selected by risk and complexity, not by task size alone.
+Artifacts are selected by risk and complexity, not task size alone. Intent, specification, and planning information must be sufficient and authoritative; separate files are conditional unless the governing project contract requires them.
 
-| Work type | `intent.md` | change `spec.md` | `plan.md` |
+| Work type | Intent record / `intent.md` | change `spec.md` | `plan.md` |
 |---|---|---|---|
-| Tiny/local fix | Optional | Optional | Optional |
-| Meaningful feature or milestone | **Required** | Required when requirements/interfaces/acceptance need durable review | Required when sequence, dependencies, rollback, or multiple implementation steps matter |
-| High-risk work: AWS/PROD/IAM/network/security/data/destructive/material-cost/trust-boundary | **Required** | **Required** | **Required** when multi-step, rollback-sensitive, operationally complex, or dependent on external state |
+| Tiny/local fix | Owning Issue/PR may suffice | Optional | Optional |
+| Meaningful feature or milestone | Durable intent required; use `intent.md` when it adds enduring context beyond a sufficient Issue | Required when requirements/interfaces/acceptance need separate durable review | Required when sequence, dependencies, rollback, or multiple implementation steps need a separate execution record |
+| High-risk work: AWS/PROD/IAM/network/security/data/destructive/material-cost/trust-boundary | Durable approved intent required | Approved specification and operating contract required; use an existing equivalent or a change-specific file | Durable reviewed plan required when multi-step, rollback-sensitive, operationally complex, or dependent on external state |
 
 ### Exact skip rule
 
@@ -47,17 +47,17 @@ A tiny/local fix may use the owning GitHub Issue/PR as both intent and plan when
 - implementation and rollback are obvious;
 - acceptance can be expressed directly in the Issue/PR.
 
-Do not create empty `intent.md`, `spec.md`, or `plan.md` files merely to satisfy a template.
+For other work, a sufficient owning Issue may hold the required intent, specification, or plan without duplicate files, provided the governing contract permits it. Required information, review, approvals, and governed execution plans cannot be skipped. Keep enduring behavior and intent in versioned project documentation before closing the Issue; link rather than duplicate.
 
-If an artifact is skipped, the owning Issue/PR must still preserve the information needed to execute and review the work safely.
+This is a deliberate local adaptation of the source playbook's committed `intent.md` / `spec.md` / `plan.md` model, reconciled with the existing Agent OS sufficient-Issue rule. Never create empty ceremonial files or a second source of authority.
 
 ## Change Artifact Layout
 
-For meaningful work, use:
+When separate change files add value, use:
 
 ```text
 intent/<change>/
-  intent.md
+  intent.md    # when required
   spec.md      # when required
   plan.md      # when required
 ```
@@ -71,20 +71,27 @@ The change-specific `plan.md` defines how the approved specification will be imp
 ## Default Execution Loop
 
 ```text
-Amit / originator brain dump
+Originator's desired outcome
   -> capture intent
   -> AI derives specification
   -> human reviews outcome + boundaries
   -> AI derives implementation plan
   -> code / IaC / configuration
   -> focused tests and CI
-  -> deploy or runtime validation when relevant
-  -> provider/readback evidence
-  -> PR review
+  -> explicitly approved DEV validation when relevant (non-PROD only)
+  -> PR review + required checks + merge
+  -> applicable environment approval before release/deploy
+  -> deploy + provider/readback evidence + acceptance + observe
   -> cleanup / retained-state record
   -> escaped failure becomes a regression or reusable rule
   -> next intent
 ```
+
+Pre-merge runtime validation is limited to explicitly approved non-PROD targets; it does not authorize release or PROD changes. Release follows applicable review, merge, and environment approval.
+
+For delegated or stateful execution, retain the request digest, exact target identity, execution/run ID, revision, evidence pointer, and terminal outcome in the owning record or an appropriately private evidence store. Reconcile the original execution and current target state before any permitted retry; uncertainty blocks redispatch. A delivery receipt proves admission only; the controller separately verifies acceptance.
+
+Keep public examples generic (DEV / PROD and placeholders). Never publish credentials, authentication state, private repository identifiers, private infrastructure details, or raw sensitive evidence.
 
 GitHub Issue/PR remains the normal workflow, authority, coordination, and evidence plane. Context loading stays event-driven: use the owning Issue/PR, current HEAD/diff, and only the governing files relevant to the task.
 
