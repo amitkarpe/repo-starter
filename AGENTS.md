@@ -9,12 +9,31 @@
 Use this order when the agent has no reliable current context, is recovering from stale/contradictory state, or governing context materially changed:
 
 1. `AGENTS.md`
-2. the owning GitHub Issue/PR when active work exists
-3. `CONTEXT.md` only when restart/current-state recovery is needed
-4. `SPEC.md` when implementation, mutation, deployment, cleanup, authority, or safety boundaries matter
-5. `ENV.md` when runtime, cloud, host, profile, or tool facts matter
-6. `CHATGPT.md` when ChatGPT/Codex adapter or repository-binding details matter
-7. `INIT.md` only while repository initialization is incomplete
+2. `INIT.md` when the repository is new, initialization may be incomplete, or the project purpose is not yet settled
+3. the owning GitHub Issue/PR when active work exists
+4. `CONTEXT.md` only when restart/current-state recovery is needed
+5. `SPEC.md` when implementation, mutation, deployment, cleanup, authority, or safety boundaries matter
+6. `ENV.md` when runtime, cloud, host, profile, or tool facts matter
+7. `CHATGPT.md` when ChatGPT/Codex adapter or repository-binding details matter
+
+If `INIT.md` says `NOT_INITIALIZED`, complete the first-intent bootstrap before significant implementation.
+
+### Intent Gate
+
+For meaningful new work, do not jump from a vague request directly into implementation.
+
+Use `intent/README.md` and the AI-native SDLC contract to:
+
+1. inspect existing repository/runtime truth first;
+2. ask only unresolved material questions, normally one question at a time;
+3. use Research / Discovery only when uncertainty could materially change the intent;
+4. challenge assumptions only when they affect scope, architecture, safety, acceptance, or reproducibility;
+5. restate the proposed intent so the originator can correct it;
+6. record explicit originator acceptance before deriving the governed Spec / Plan or starting significant implementation.
+
+The agent may draft and structure intent, but it cannot self-approve it. Recording `Status: ACCEPTED` is allowed only when explicit originator acceptance exists in the owning conversation or GitHub record. Intent acceptance does not grant cloud, PROD, IAM, network, destructive, sensitive-data, or other mutation authority.
+
+Tiny/local fixes that satisfy the skip rule in `AI_NATIVE_SDLC.md` may use the owning Issue/PR directly and skip a separate intent file or interview.
 
 ### Warm continuation
 

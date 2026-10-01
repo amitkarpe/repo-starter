@@ -25,10 +25,22 @@ Before approving a meaningful Intent, check whether unresolved uncertainty could
 
 Tiny/local fixes normally skip this gate.
 
+## Intent Gate
+
+Meaningful new work must have one authoritative intent before significant implementation.
+
+The agent should inspect known truth, interview only unresolved material points, challenge assumptions selectively, and restate the proposed intent for correction. Use `intent/README.md` when a separate durable intent record adds value.
+
+The agent may draft or structure the intent, but it cannot self-approve it. Record `Status: ACCEPTED` only after explicit originator acceptance exists in the owning conversation or GitHub record.
+
+Intent acceptance confirms the desired outcome and boundaries. It does **not** grant cloud, PROD, IAM, network, destructive, sensitive-data, or other mutation authority; those remain governed by the repository execution contract and current user/environment approval.
+
+Tiny/local fixes that satisfy the exact skip rule may use a sufficient Issue/PR directly.
+
 ## Ten Contracts
 
 1. **Purpose** — `README.md` states why the repository exists, who it serves, and its important non-goals.
-2. **Intent** — meaningful work starts from one authoritative intent record: the originator's problem, desired outcome, constraints, assumptions, and open questions, linked to the owning Issue, PR, and revision.
+2. **Intent** — meaningful work starts from one authoritative intent record: the originator's problem, desired outcome, constraints, assumptions, and open questions, linked to the owning Issue, PR, and revision. The agent may structure it, but explicit originator acceptance is required before it is treated as accepted.
 3. **Specification** — AI converts approved intent into reviewable requirements, interfaces, environment assumptions, safety boundaries, and acceptance criteria.
 4. **Plan** — before significant implementation, define the change sequence, dependencies, validation, failure handling, rollback, and retained state.
 5. **Git is complete** — runtime work on EC2, Docker, AWS, local hosts, or other systems is not complete until the code, IaC, configuration, scripts, and instructions needed to reproduce it are committed.
@@ -108,6 +120,49 @@ For delegated or stateful execution, retain the request digest, exact target ide
 Keep public examples generic (DEV / PROD and placeholders). Never publish credentials, authentication state, private repository identifiers, private infrastructure details, or raw sensitive evidence.
 
 GitHub Issue/PR remains the normal workflow, authority, coordination, and evidence plane. Context loading stays event-driven: use the owning Issue/PR, current HEAD/diff, and only the governing files relevant to the task.
+
+## Adoption And Pilot
+
+### New repositories
+
+Use `INIT.md` to turn the originator's rough idea into the first accepted project intent. For meaningful new repositories, create `intent/0001-project-bootstrap/intent.md` during initialization rather than pre-creating an empty template file.
+
+A fresh-repo pilot passes when:
+
+- a rough idea triggers the first-intent bootstrap;
+- known repository/runtime facts are inspected before questioning;
+- unresolved material questions are asked rather than silently guessed;
+- Research / Discovery runs only when it can materially change intent;
+- the originator explicitly accepts the intent before significant implementation;
+- Spec / Plan are derived proportionally;
+- tiny/local fixes can still use the skip rule;
+- CI/check success and actual runtime acceptance remain separate evidence.
+
+### Existing repositories
+
+Adopt incrementally. Do not invent historical intent or rewrite repository history merely to fit this model.
+
+For the next meaningful change:
+
+1. start from current Git/GitHub truth;
+2. use Discovery when current runtime/environment state could change the work;
+3. reconcile important runtime-only implementation back into versioned code/IaC/configuration when needed;
+4. preserve existing safety and authority contracts;
+5. capture and accept the next meaningful intent, then continue through Spec / Plan proportionally.
+
+An existing-repo pilot passes when current truth is preserved, no historical intent is fabricated, the next meaningful change uses the Intent Gate, and runtime evidence is reconciled separately from CI evidence.
+
+### Useful measurements
+
+Measure only what can improve the process:
+
+- material assumptions found before coding;
+- rework caused by missed requirements or environment facts;
+- reproducibility from Git, CI, and runtime evidence;
+- handoff/restart clarity;
+- escaped defects converted into regression checks.
+
+Do not use document count, question count, or test count as productivity measures.
 
 ## References
 
