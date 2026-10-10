@@ -17,6 +17,8 @@ For current work, prefer the owning GitHub Issue/PR and current HEAD. Load the o
 - `INIT.md` — one-time initialization only
 - `ROADMAP.md` — useful future direction, not current authority
 
+For optional laptop-free deployment of a Codex Cloud app, see [Cloud-first quickstart](docs/CLOUD_FIRST_QUICKSTART.md). It is a reference workflow, not an extra approval or bootstrap gate.
+
 Do not use this README as a second copy of the agent bootstrap policy.
 
 ## Template Model
