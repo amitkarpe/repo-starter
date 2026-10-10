@@ -54,6 +54,12 @@ Use this new-project checklist in order:
   Settings → Domains & Routes → Add → Custom Domain. Confirm hostname ownership and any
   existing record conflict before changing it. Let the provider manage its exact DNS record
   and certificate. No wildcard DNS, broad zone edits, nameserver changes or preview domains.
+  The route-free starter explicitly sets `workers_dev: false` as well as
+  `preview_urls: false`; disabling version URLs alone does **not** disable the
+  production `workers.dev` hostname. Verify the approved Custom Domain responds
+  and the unapproved `workers.dev` production endpoint is disabled. If the owner
+  deliberately chooses `workers.dev` instead, approve and record that public
+  hostname in `ENV.md` and explicitly set `workers_dev: true` in the adopted app.
 - [ ] Connect the existing Worker's Settings → Builds to the exact GitHub repository.
   Set production `main`, root `/` for the copied starter, **empty build command**,
   deploy **`npx wrangler deploy`**, auto-build enabled, and the verified build credential.
