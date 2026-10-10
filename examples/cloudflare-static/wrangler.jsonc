@@ -1,0 +1,11 @@
+{
+  // Opt-in example: copy to your app root and replace this name before deployment.
+  "name": "replace-with-app-name",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-10",
+  "preview_urls": false,
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  }
+}
