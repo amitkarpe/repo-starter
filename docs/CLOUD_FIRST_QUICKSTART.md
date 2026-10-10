@@ -2,6 +2,8 @@
 
 **Use case:** build, review, and deploy a small cloud application from **Codex Cloud + GitHub + a connected hosting provider**, without a local laptop. This is optional guidance, not a new initialization gate or an AWS execution permission.
 
+For **development environment preparation** (distinct from hosting/release), use the [repository-owned Codex Cloud setup contract](CLOUD_SETUP.md) for the Install script, Start skill and readiness checks.
+
 ## Choose the smallest proven path
 
 - **Existing repo?** Reuse it. For a new meaningful project, create a GitHub repository from [repo-starter](https://github.com/amitkarpe/repo-starter) and initialize the accepted intent via `INIT.md`. No project needs to be derived from the separate AWS CodeBuild POC.

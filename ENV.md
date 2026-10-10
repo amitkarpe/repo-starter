@@ -20,6 +20,22 @@ List only tools this project actually depends on, for example:
 - Terraform/Terragrunt: `<required / not required>`
 - Nextflow: `<required / not required>`
 
+## Optional Codex Cloud Development Setup
+
+See [the repository-owned setup contract](docs/CLOUD_SETUP.md). Fill this section **in a derived project only after selecting its intended development workflow and obtaining the required intent acceptance**. The source template stays unconfigured and does not install software.
+
+- **Setup state:** `UNCONFIGURED` (template default; **not** the same as a deliberately configured `NO_EXTRA_TOOLS` workflow).
+- **Required workflow/profile:** `<accepted project workflow or not selected>`; optional profiles are not inferred from repository names or hosting targets.
+- **Intended repository / selected managed environment:** `<exact owner/repo and confirmed environment selection>`; mounted checkout and task ref/SHA: `<verified at task time>`.
+- **Required tools/versions and services/ports:** specify under **Development Tools** and **External Dependencies**; point to authoritative manifests/lockfiles rather than duplicate version pins.
+- **Configuration and network:** `<required variable names, secret/non-secret classification, permitted endpoints; never values>`.
+- **Install / activation / service startup:** `<actual repo command(s) or explicitly no installation>`.
+- **Readiness and functional check:** `<actual repo command(s), expected result and required failure behavior>`.
+- **Optional capabilities:** `<explicit opt-in features; otherwise NOT_RUN>`.
+- **Evidence:** `<task revision, selected profile, tool/readiness results; cloud publication and fresh-task proof tracked separately>`.
+
+An intentionally dependency-free project can become ready **only after its selected functional check passes**. The template's `Status: NOT_READY` is unchanged; a setup script or CLI version alone does not imply AWS/cloud authentication or deployment permission.
+
 ## Cloud
 
 - Provider: `<AWS / none / other>`
