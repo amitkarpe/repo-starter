@@ -19,6 +19,13 @@ For current work, prefer the owning GitHub Issue/PR and current HEAD. Load the o
 
 For optional laptop-free deployment of a Codex Cloud app, see [Cloud-first quickstart](docs/CLOUD_FIRST_QUICKSTART.md). It is a reference workflow, not an extra approval or bootstrap gate.
 
+Cloudflare is an opt-in path: [six-file static starter](examples/cloudflare-static/README.md),
+[owner onboarding and new-project checklist](docs/CLOUDFLARE_WORKERS_ONBOARDING.md),
+and [release evidence / recovery receipt](docs/DEPLOYMENT_EVIDENCE.md). The template
+provisions nothing and carries no provider credentials or active root deployment config.
+Complete `INIT.md` first; the owner's `<app-name>.amitk.life` convention is optional
+for other owners. Use native Git Builds only after the one owner integration gate.
+
 Do not use this README as a second copy of the agent bootstrap policy.
 
 ## Template Model
