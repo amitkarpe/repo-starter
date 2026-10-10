@@ -45,6 +45,20 @@ An intentionally dependency-free project can become ready **only after its selec
 
 Never infer execution authority from an AWS profile name. Authority comes from `SPEC.md` and the active Issue/instruction.
 
+## Optional Provider Execution Identity
+
+For a derived project **only**, record the selected execution route when provider access is actually needed. These are descriptive fields, not credentials, grants or a new runtime gate.
+
+- **Execution plane:** `SOFTWARE_ONLY | GITHUB_OIDC | CODEBUILD_SERVICE_ROLE | DIRECT_CODEX_CLOUD` (choose one in the derived project's approved scope; source template is unconfigured).
+- **Provider identity required:** `NO | YES` (software-only workflows need no provider authentication).
+- **Target reference:** `<approved private account/role record or NONE>`; reuse the provider/region selectors above.
+- **Allowed operations reference:** `<approved SPEC/Issue or NONE>`.
+- **Identity status:** `NOT_REQUIRED | NOT_CONFIGURED | READY_VERIFIED | EXPIRED | ACCESS_DENIED | WRONG_ACCOUNT | UNVERIFIED`.
+- **Evidence reference:** `<sanitized receipt scoped to target, role, repository, execution plane and session, or NONE>`.
+
+`NOT_REQUIRED` means **no provider identity is needed**, not that installation, functional checks, cloud setup or task execution passed. `READY_VERIFIED` is time- and scope-bound evidence, **not permission** to perform a new operation. Reverify identity and intended service capability when starting authorized provider work; action authority remains in the owning SPEC/Issue. Software-only tasks must not perform identity or permission probes.
+
+
 ## External Dependencies
 
 - `<service, MCP, model platform, database, API, or N/A>`

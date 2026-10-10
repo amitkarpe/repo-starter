@@ -35,6 +35,13 @@ Before saving or executing a project Install script, and before changing repo co
 
 Choose development tools separately from the hosting/build destination. GitHub Pages and Cloudflare Workers do not imply AWS tooling; AWS M6 `core`, `cloudops` and `app-dev` are opt-in from [`cloud-app-factory`](https://github.com/kcloud1/cloud-app-factory/blob/48ab0ffa8d5615822d6ab99c516709c42f1070b1/docs/aws-toolkit.md). Amplify Hosting and CodeBuild require their own selected project workflow and deployment authority; CodeBuild builds artifacts rather than automatically hosting a website. Provider identity, permissions, network reachability and deployment are **separate proofs** from CLI installation.
 
+### Provider identity is a separate, optional decision
+
+When provider access is needed, the derived project's [`ENV.md`](../ENV.md) may record the **execution plane**, whether identity is required, a reference to approved target/role details, the allowed-operations Issue/SPEC and a scoped evidence receipt. Software/tool readiness, provider identity, service capability and **authorization to act** are distinct. A `SOFTWARE_ONLY` project does not authenticate or run provider probes.
+
+For separately approved AWS CI operations, prefer existing reviewed GitHub Actions with narrowly scoped OIDC roles. CodeConnections grants CodeBuild access to GitHub **source**, not AWS caller authority; CodeBuild uses its own service role. Direct Codex Cloud identity remains **unproven** until the selected runtime supports and verifies an appropriate short-lived mechanism. No route silently creates IAM roles, CI workflows, connections or infrastructure. For any later OIDC trust, check the actual issuer, audience, subject and exact repository/environment restrictions against current official documentation.
+
+
 ## Codex Cloud UI examples — adapt after project intent acceptance
 
 **Blank starter:** Leave **Install script** empty. No bootstrap shell command or repository install profile is selected. Its Start skill may guide the agent through the existing `INIT.md` interview, but must not mark the repository READY.
