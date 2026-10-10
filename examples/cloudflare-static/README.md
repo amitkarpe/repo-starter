@@ -13,7 +13,11 @@ and theme toggle; it makes no network calls.
 `worker.js` delegates to `ASSETS`; the allowlist uploads only the three public
 frontend files. Add each intended public file explicitly if the app grows.
 No API, package manifest, Actions workflow, cloud credentials, domain route, or
-provisioning script is included. Preview URLs start disabled.
+provisioning script is included. Production `workers.dev` and Version URLs are
+disabled by default (`workers_dev: false`, `preview_urls: false`), so the app
+has no public hostname until an explicitly approved Custom Domain is attached.
+If the owner intends to publish on `workers.dev`, approve that hostname and
+explicitly change `workers_dev` to `true` in the adopted app's configuration.
 
 Follow the [owner onboarding](../../docs/CLOUDFLARE_WORKERS_ONBOARDING.md) before
 connecting Builds or deploying. Running `wrangler deploy` can create a Worker;
