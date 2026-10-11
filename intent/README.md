@@ -24,9 +24,11 @@ Use only these states:
 
 - `DRAFT` — still being clarified.
 - `READY_FOR_REVIEW` — agent believes the intent is coherent and has restated it to the originator.
-- `ACCEPTED` — explicit originator acceptance exists in the owning conversation or GitHub record.
+- `ACCEPTED` — explicit originator acceptance exists in the owning conversation or GitHub record and identifies the exact intent revision that was accepted.
 
-When setting `ACCEPTED`, record a short acceptance reference or note. Do not infer acceptance merely because the agent finished writing the file.
+When setting `ACCEPTED`, record both the acceptance evidence and the exact accepted intent revision, normally a Git commit SHA or PR head SHA. Do not infer acceptance merely because the agent finished writing the file.
+
+If a material change is made after that accepted revision — especially to the desired outcome, scope, constraints, safety/authority boundaries, or acceptance — return the intent to `DRAFT` or `READY_FOR_REVIEW` and obtain renewed originator acceptance before implementing the changed intent. Metadata-only edits that do not change the intent do not require re-acceptance.
 
 ## First Project Intent
 
@@ -49,6 +51,7 @@ Status: DRAFT
 Owner: <originator>
 Owning issue/PR: <link or N/A>
 Acceptance evidence: <link/note or pending>
+Accepted intent revision: <commit SHA / PR head SHA / pending>
 
 ## Originator words
 <important original wording or concise faithful summary>
@@ -96,4 +99,4 @@ After intent is accepted:
 3. implement against the accepted intent and governing contracts;
 4. review the result against the acceptance evidence, not against whatever was easiest to build.
 
-If implementation reveals a material change to the desired outcome or boundaries, update/re-review the intent instead of silently drifting.
+If implementation reveals a material change to the desired outcome or boundaries, update the intent, return it to `DRAFT` or `READY_FOR_REVIEW`, and obtain renewed originator acceptance tied to the new intent revision before implementing that change.

@@ -127,7 +127,7 @@ GitHub Issue/PR remains the normal workflow, authority, coordination, and eviden
 
 Use `INIT.md` to turn the originator's rough idea into the first accepted project intent. For meaningful new repositories, create `intent/0001-project-bootstrap/intent.md` during initialization rather than pre-creating an empty template file.
 
-A fresh-repo pilot passes when:
+Fresh-repo pilot acceptance criteria (not yet proven unless run evidence is linked):
 
 - a rough idea triggers the first-intent bootstrap;
 - known repository/runtime facts are inspected before questioning;
@@ -150,7 +150,9 @@ For the next meaningful change:
 4. preserve existing safety and authority contracts;
 5. capture and accept the next meaningful intent, then continue through Spec / Plan proportionally.
 
-An existing-repo pilot passes when current truth is preserved, no historical intent is fabricated, the next meaningful change uses the Intent Gate, and runtime evidence is reconciled separately from CI evidence.
+Existing-repo pilot acceptance criteria (not yet proven unless run evidence is linked): current truth is preserved, no historical intent is fabricated, the next meaningful change uses the Intent Gate, and runtime evidence is reconciled separately from CI evidence.
+
+These sections define pilot criteria only. Do not claim a pilot passed until the owning Issue/PR links the actual observations and evidence from that run.
 
 ### Useful measurements
 
