@@ -61,7 +61,7 @@ Do not reread all root context files before every PR, handoff, or continuation.
 - Move completed/history detail to Git history, closed Issues/PRs, or `docs/history/` when the repository uses one.
 - Use `SPEC.md` as the repository execution/authority contract when the work needs one. Proceed inside an ACTIVE approved scope and stop on a genuine safety, scope, authorization, repository-identity, access, or validation failure.
 - Prefer one cohesive PR with related phases/tasks over micro-PRs. Small isolated fixes may remain small.
-- Batch local workspace cleanup after roughly 5-10 merged PRs or a major milestone; do not clean after every PR. Preserve active work and referenced evidence. Remote branch or cloud-resource cleanup is separate authority.
+- At PR/Issue closeout, inspect secondary Git worktrees and remove only completed, clean, unused checkouts with merged/preserved work and no active X/rollback dependency. Use native `git worktree remove` (no force/`rm -rf`); preserve dirty, active, unmerged or uncertain work. Batch safe cleanup when useful. Remote branches and cloud resources are separate authority. [Canonical Agent OS default](https://github.com/amitkarpe/agent-os/blob/main/AGENTS.md#portfolio-economy-defaults).
 - When context is materially stale, incomplete, contradictory, or unsafe to reuse, rebuild it from current repository/GitHub truth instead of relying on old conversation memory.
 - The Connector Safety Gate referenced in `CHATGPT.md` is mandatory for connector/platform actions.
 - When the current objective is known, short continuation such as `go`, `g`, `.`, `Y`, or `yes` means execute/continue it within existing authority unless Amit explicitly selected plan/review/discussion mode.
