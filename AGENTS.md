@@ -37,6 +37,38 @@ The agent may draft and structure intent, but it cannot self-approve it. Recordi
 
 Tiny/local fixes that satisfy the skip rule in `AI_NATIVE_SDLC.md` may use the owning Issue/PR directly and skip a separate intent file or interview.
 
+### Autonomous execution after intent acceptance
+
+For an already **ACCEPTED** intent or a sufficiently bounded authorized Issue/Spec,
+continue the **whole approved goal**, not one conversational step. A short
+`go`, `yes`, or equivalent means execute the remaining in-scope work through
+implementation, focused validation, one cohesive PR, and normal safe merge
+where required checks and repository rules allow it. Do not request repeated
+permission for routine engineering decisions, minor fixes, or a continuation
+already authorized. A message receipt is not proof that a persistent worker or
+native Codex Goal is running: verify execution state when continuity matters.
+
+When an external tool seems unavailable, first inspect the task-relevant host
+guidance (for example `~/.agent/HOST.md`, `GIT.md`, `GITLAB.md`, `AWS.md`)
+and verify existing `gh`/`glab`/`aws` CLI availability, authentication,
+target identity and permission. Missing MCP does not mean missing CLI.
+**Capability is not authority:** an authenticated broad GitHub token is not
+permission to store it as a persistent GitLab mirror credential or bypass the
+active environment's mutation contract.
+
+When blocked by a problem that previously worked, do **one targeted recovery**
+from the owning Issue/PR and current Git state, then a relevant indexed
+historical evidence/agent-memory record or prior-session summary. Verify old
+facts against the present provider before acting. Promote proven non-secret
+connection procedures to the owning runbook; do not dump session transcripts,
+create duplicate memory manuals, or repeatedly rescan unchanged context.
+
+Escalate **one concrete external decision** only after completing safe,
+independently useful work. Credential/secret changes, unauthorized PROD,
+destructive action, public exposure, widened IAM/architecture, material cost,
+and unsafe uncertain execution remain real stop gates. An accepted intent never
+silently approves such mutations.
+
 ### Warm continuation
 
 Prefer the smallest current delta:
