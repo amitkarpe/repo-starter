@@ -26,8 +26,11 @@ Repository visibility is not an authority signal. Private does not mean personal
 
 Once this SPEC is ACTIVE and the owning intent/Issue is accepted, execute
 approved milestones continuously: discover -> implement -> focused validation
--> one cohesive PR -> safe normal merge -> evidence -> continue. Do not ask
-the owner to approve each routine change, retry of a harmless local check,
+-> one cohesive PR -> authorized merge (when explicitly included in this
+SPEC's Authorized scope or owning Issue/current instruction) -> evidence ->
+continue. Never infer merge permission from intent acceptance or an ACTIVE
+SPEC that authorizes only editing/PR creation. Do not ask the owner to approve
+each routine change, retry of a harmless local check,
 or already-authorized LAB/DEV operation. For long tasks, record durable
 execution IDs and reconcile the existing execution before attempting a retry.
 
