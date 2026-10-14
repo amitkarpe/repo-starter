@@ -39,11 +39,15 @@ Tiny/local fixes that satisfy the skip rule in `AI_NATIVE_SDLC.md` may use the o
 
 ### Autonomous execution after intent acceptance
 
-For an already **ACCEPTED** intent or a sufficiently bounded authorized Issue/Spec,
-continue the **whole approved goal**, not one conversational step. A short
-`go`, `yes`, or equivalent means execute the remaining in-scope work through
-implementation, focused validation, one cohesive PR, and normal safe merge
-where required checks and repository rules allow it. Do not request repeated
+For an already **ACCEPTED** intent **and** an authorized ACTIVE Spec,
+owning Issue, or explicit current instruction granting the intended actions,
+continue the **whole approved goal**, not one conversational step. A sufficiently
+bounded Issue may also authorize tiny fixes when the repository's intent-skip
+rule applies. Intent acceptance by itself does **not** grant mutation authority.
+A short `go`, `yes`, or equivalent continues the in-scope work through
+implementation, focused validation and one cohesive PR. Merge only when
+separately authorized by the controlling Issue/Spec/instruction and allowed by
+repository checks and rules. Do not request repeated
 permission for routine engineering decisions, minor fixes, or a continuation
 already authorized. A message receipt is not proof that a persistent worker or
 native Codex Goal is running: verify execution state when continuity matters.
