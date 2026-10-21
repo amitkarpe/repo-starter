@@ -18,6 +18,22 @@ Use this order when the agent has no reliable current context, is recovering fro
 
 If `INIT.md` says `NOT_INITIALIZED`, complete the first-intent bootstrap before significant implementation.
 
+### G-to-coding-agent collaboration — conditional shared protocol
+
+When an approved task involves G (ChatGPT) communicating with an existing
+coding agent X, or a selected Factory/Manager coordinating X, **actually
+read** the [G and Coding-Agent Collaboration Protocol](https://github.com/amitkarpe/agent-os/blob/main/kb/playbooks/integrations/chatgpt-codex-collaboration-protocol.md)
+once when needed. Prefer a verified, up-to-date local checkout at
+`~/git/agent-os/kb/playbooks/integrations/chatgpt-codex-collaboration-protocol.md`
+when present; otherwise read the canonical GitHub version when accessible.
+A URL or automatically loaded `AGENTS.md` is **not** proof that a linked
+external file was read. Report an inaccessible reference honestly.
+
+Skip this extra read for unrelated tasks and verified unchanged warm context.
+The owning repository's `AGENTS.md`, applicable `SPEC.md`, authorized
+Issue/PR, and selected route-specific adapter remain binding; reusable Agent OS
+guidance does not create new permissions or mandatory Factory/G review.
+
 For Codex Cloud development-environment onboarding or recovery, read `ENV.md` and [the repository-owned setup guide](docs/CLOUD_SETUP.md) when relevant. Verify the task's intended repository, the managed environment's selected repository when observable, and the mounted checkout **before** project setup; a Git remote alone does not prove the managed binding. Follow adopted project-required readiness commands, not optional examples; report unconfigured and failed prerequisites without bypassing `INIT.md`'s intent gate.
 
 ### Intent Gate
