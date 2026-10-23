@@ -42,6 +42,6 @@ Keep root contracts separate by responsibility:
 
 Historical detail belongs in Git history, closed Issues/PRs, or `docs/history/` when needed — not in `CONTEXT.md`.
 
-Reusable cross-project policy belongs in Agent OS and should normally be referenced rather than recopied here. Machine-specific facts belong in the active `~/.agent/HOST.md` when available.
+Reusable cross-project policy belongs in the canonical `amitkarpe/agents` repository, read locally from its verified `~/.agents/` checkout, and should normally be referenced rather than recopied here. Machine-specific facts belong in the active `~/.config/agent/HOST.md` when available.
 
 Preserve useful local knowledge. Context-loading economy means reading the right file at the right time, not deleting information.

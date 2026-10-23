@@ -69,7 +69,8 @@ already authorized. A message receipt is not proof that a persistent worker or
 native Codex Goal is running: verify execution state when continuity matters.
 
 When an external tool seems unavailable, first inspect the task-relevant host
-guidance (for example `~/.agent/HOST.md`, `GIT.md`, `GITLAB.md`, `AWS.md`)
+guidance (for example `~/.config/agent/HOST.md`, `GITLAB.md`, `AWS.md`, and
+verified canonical `~/.agents/GIT.md`)
 and verify existing `gh`/`glab`/`aws` CLI availability, authentication,
 target identity and permission. Missing MCP does not mean missing CLI.
 **Capability is not authority:** an authenticated broad GitHub token is not
@@ -121,7 +122,7 @@ Do not reread all root context files before every PR, handoff, or continuation.
 
 ## Global Guidance
 
-When available, use `~/.agent/CORE.md` as the shared machine-wide operating contract and `~/.agent/HOST.md` for active host facts. Tool homes such as `~/.codex/` remain tool-specific adapters/runtime state.
+When configured, use `~/.agents/CORE.md` from the verified canonical `amitkarpe/agents` checkout for portable guidance, and `~/.config/agent/HOST.md` for active host facts. Required local exceptions stay in the owning host/provider configuration. Tool homes such as `~/.codex/` remain tool-specific adapters/runtime state.
 
 Agent OS is reusable guidance, never automatic project authority. Current user instruction plus this repository's local rules, applicable `SPEC.md`, owning Issue/PR, and project context take precedence.
 
