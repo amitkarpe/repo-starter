@@ -2,11 +2,11 @@
 
 Status: NOT_READY
 
-Record project-specific runtime and dependency truth here. Keep machine-specific facts in the active `~/.agent/HOST.md` profile when available instead of duplicating host configuration in every repository.
+Record project-specific runtime and dependency truth here. Keep machine-specific facts in the active `~/.config/agent/HOST.md` profile when available instead of duplicating host configuration in every repository.
 
 ## Runtime
 
-- Primary host/profile: `~/.agent/HOST.md` when available
+- Primary host/profile: `~/.config/agent/HOST.md` when available
 - Working directory: `<repo path>`
 - Runtime: `<local | Codex Cloud | container | hosted app | mixed>`
 
