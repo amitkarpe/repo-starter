@@ -22,9 +22,9 @@ If `INIT.md` says `NOT_INITIALIZED`, complete the first-intent bootstrap before 
 
 When an approved task involves G (ChatGPT) communicating with an existing
 coding agent X, or a selected Factory/Manager coordinating X, **actually
-read** the [G and Coding-Agent Collaboration Protocol](https://github.com/amitkarpe/agent-os/blob/main/kb/playbooks/integrations/chatgpt-codex-collaboration-protocol.md)
+read** the [G and Coding-Agent Collaboration Protocol](https://github.com/amitkarpe/agents/blob/main/chatgpt/COLLABORATION.md)
 once when needed. Prefer a verified, up-to-date local checkout at
-`~/git/agent-os/kb/playbooks/integrations/chatgpt-codex-collaboration-protocol.md`
+`~/.agents/chatgpt/COLLABORATION.md`
 when present; otherwise read the canonical GitHub version when accessible.
 A URL or automatically loaded `AGENTS.md` is **not** proof that a linked
 external file was read. Report an inaccessible reference honestly.
@@ -122,7 +122,7 @@ Do not reread all root context files before every PR, handoff, or continuation.
 
 ## Global Guidance
 
-When configured, use `~/.agents/CORE.md` from the verified canonical `amitkarpe/agents` checkout for portable guidance, and `~/.config/agent/HOST.md` for active host facts. Required local exceptions stay in the owning host/provider configuration. Tool homes such as `~/.codex/` remain tool-specific adapters/runtime state.
+When configured, use `~/.agents/AGENTS.md` from the verified canonical `amitkarpe/agents` checkout for portable guidance, and `~/.config/agent/HOST.md` for active host facts. Required local exceptions stay in the owning host/provider configuration. Tool homes such as `~/.codex/` remain tool-specific adapters/runtime state.
 
 Agent OS is reusable guidance, never automatic project authority. Current user instruction plus this repository's local rules, applicable `SPEC.md`, owning Issue/PR, and project context take precedence.
 
