@@ -110,7 +110,7 @@ Do not reread all root context files before every PR, handoff, or continuation.
 - Preserve existing work. Do not revert unrelated changes or use destructive Git actions without authority.
 - Keep durable code, decisions, and reports in Git. Never commit secrets, credentials, authentication state, or copied repositories.
 - Keep `CONTEXT.md` current-only. It is a recovery index, not project history.
-- Start every Issue, comment, PR and handoff with the identity header from `amitkarpe/agents` `IDENTITY.md`. This is a must when you write in another repository.
+- Follow `amitkarpe/agents` `IDENTITY.md`: the full identity header on new Issues, PRs, handoffs, environment changes and questions in another repository; the short header on routine replies.
 - Update `CONTEXT.md` only when repository identity, current truth, active Issue/PR, blocker, or next action must be preserved for recovery.
 - Move completed/history detail to Git history, closed Issues/PRs, or `docs/history/` when the repository uses one.
 - Use `SPEC.md` as the repository execution/authority contract when the work needs one. Proceed inside an ACTIVE approved scope and stop on a genuine safety, scope, authorization, repository-identity, access, or validation failure.
