@@ -66,6 +66,8 @@ After the first intent is accepted, update only the files that need project-spec
 - `ENV.md` — project runtime/tool/cloud dependencies
 - `ROADMAP.md` — only useful future milestones
 
+Adopt the agent identity standard: every Issue, comment and PR starts with the identity header of `amitkarpe/agents` `IDENTITY.md` (link it from `AGENTS.md`; do not copy the file).
+
 Derive a change-specific spec or plan only when the proportional artifact rules in `AI_NATIVE_SDLC.md` require them.
 
 Then set this file to:
