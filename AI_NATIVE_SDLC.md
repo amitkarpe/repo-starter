@@ -121,6 +121,16 @@ Keep public examples generic (DEV / PROD and placeholders). Never publish creden
 
 GitHub Issue/PR remains the normal workflow, authority, coordination, and evidence plane. Context loading stays event-driven: use the owning Issue/PR, current HEAD/diff, and only the governing files relevant to the task.
 
+## Project start vs goal start
+
+A **new project** starts in [`INIT.md`](INIT.md) with iterative intent,
+feasibility and owner acceptance before significant implementation. A **new
+Goal** in an **initialized** repository starts from its owning Issue and a preflight
+scaled to risk; tiny local fixes retain the skip rule above. Follow the
+[canonical Agent OS Goals](https://github.com/amitkarpe/agents/blob/main/GOALS.md)
+for coordinator decisions, execution, checkpoints and outcome proof rather
+than copying those rules here.
+
 ## Adoption And Pilot
 
 ### New repositories
