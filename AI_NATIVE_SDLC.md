@@ -121,6 +121,16 @@ Keep public examples generic (DEV / PROD and placeholders). Never publish creden
 
 GitHub Issue/PR remains the normal workflow, authority, coordination, and evidence plane. Context loading stays event-driven: use the owning Issue/PR, current HEAD/diff, and only the governing files relevant to the task.
 
+## Coordinator Practice
+
+Lessons from a real DEV rollout (Nov 2026). They add to the lifecycle above and do not replace it.
+
+- **Coordinator brings the plan.** For a meaningful goal the coordinator does Research / Discovery first, then presents one page: goal and proof, scope and bound environment, measured facts, an inventory table (resource, owner, how to rebuild), risks and stops, steps with a proof each, and the choices only the owner can make.
+- **Owner approves by clicking.** Ask one question per decision card with a recommendation. Do not ask for a "go" on work the approved plan already names.
+- **Measure before sizing.** Size hosts, limits and timeouts from a real run, not a guess.
+- **State and rebuild.** Infrastructure is code with remote, locked state from the first apply. Keep a bootstrap runbook (each part, owner, rebuild step) and have a fresh agent follow it once as a cold-start test.
+- **Time promises need a timer.** A promise in text wakes nobody. Set a timer in the same turn and state the time, or say "I cannot wake myself". Timers can fire a few minutes late; that is fine.
+
 ## Adoption And Pilot
 
 ### New repositories
