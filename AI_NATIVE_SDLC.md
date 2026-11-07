@@ -125,7 +125,7 @@ GitHub Issue/PR remains the normal workflow, authority, coordination, and eviden
 
 A **new project** starts in [`INIT.md`](INIT.md) with iterative intent,
 feasibility and owner acceptance before significant implementation. A **new
-Goal** in an existing repository starts from its owning Issue and a preflight
+Goal** in an **initialized** repository starts from its owning Issue and a preflight
 scaled to risk; tiny local fixes retain the skip rule above. Follow the
 [canonical Agent OS Goals](https://github.com/amitkarpe/agents/blob/main/GOALS.md)
 for coordinator decisions, execution, checkpoints and outcome proof rather
