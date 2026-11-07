@@ -121,15 +121,15 @@ Keep public examples generic (DEV / PROD and placeholders). Never publish creden
 
 GitHub Issue/PR remains the normal workflow, authority, coordination, and evidence plane. Context loading stays event-driven: use the owning Issue/PR, current HEAD/diff, and only the governing files relevant to the task.
 
-## Coordinator Practice
+## Project start vs goal start
 
-Short additions from a real DEV rollout (Nov 2026). They do not replace the lifecycle above. The coordinator role and the timer rule are described once, in [agents `COORDINATOR.md`](https://github.com/amitkarpe/agents/blob/main/COORDINATOR.md).
-
-- **Entry points.** A new project starts at `INIT.md` (iterative intent, discovery, feasibility, explicit acceptance). A new goal in an existing repository starts from its owning Issue with a preflight scaled to risk; a tiny/local fix uses the skip rule above.
-- **Research vs Discovery.** Research checks outside facts; Discovery inventories the actual repository, tools, infrastructure, access and runtime. Do either or both only when material uncertainty affects the decision. A one-page plan with an inventory is a useful default for substantial or risky work, not for every Issue.
-- **Decisions.** Use clickable decision cards when the surface supports them; otherwise ask one concise question with a recommendation. One bounded owner approval covers routine execution. Production, IAM, destructive, security and cost gates stay separate.
-- **Measure before sizing** hosts, limits and timeouts where real data matters.
-- **State and rebuild.** Relevant stateful IaC uses remote, locked state before the first apply. A cold-start rebuild check by a fresh agent is risk-based, not universal.
+A **new project** starts in [`INIT.md`](INIT.md) with iterative intent,
+feasibility and owner acceptance before significant implementation. A **new
+Goal** in an existing repository starts from its owning Issue and a preflight
+scaled to risk; tiny local fixes retain the skip rule above. Follow the
+[canonical Agent OS Goals](https://github.com/amitkarpe/agents/blob/main/GOALS.md)
+for coordinator decisions, execution, checkpoints and outcome proof rather
+than copying those rules here.
 
 ## Adoption And Pilot
 
