@@ -123,13 +123,13 @@ GitHub Issue/PR remains the normal workflow, authority, coordination, and eviden
 
 ## Coordinator Practice
 
-Lessons from a real DEV rollout (Nov 2026). They add to the lifecycle above and do not replace it.
+Short additions from a real DEV rollout (Nov 2026). They do not replace the lifecycle above. The coordinator role and the timer rule are described once, in [agents `COORDINATOR.md`](https://github.com/amitkarpe/agents/blob/main/COORDINATOR.md).
 
-- **Coordinator brings the plan.** For a meaningful goal the coordinator does Research / Discovery first, then presents one page: goal and proof, scope and bound environment, measured facts, an inventory table (resource, owner, how to rebuild), risks and stops, steps with a proof each, and the choices only the owner can make.
-- **Owner approves by clicking.** Ask one question per decision card with a recommendation. Do not ask for a "go" on work the approved plan already names.
-- **Measure before sizing.** Size hosts, limits and timeouts from a real run, not a guess.
-- **State and rebuild.** Infrastructure is code with remote, locked state from the first apply. Keep a bootstrap runbook (each part, owner, rebuild step) and have a fresh agent follow it once as a cold-start test.
-- **Time promises need a timer.** A promise in text wakes nobody. Set a timer in the same turn and state the time, or say "I cannot wake myself". Timers can fire a few minutes late; that is fine.
+- **Entry points.** A new project starts at `INIT.md` (iterative intent, discovery, feasibility, explicit acceptance). A new goal in an existing repository starts from its owning Issue with a preflight scaled to risk; a tiny/local fix uses the skip rule above.
+- **Research vs Discovery.** Research checks outside facts; Discovery inventories the actual repository, tools, infrastructure, access and runtime. Do either or both only when material uncertainty affects the decision. A one-page plan with an inventory is a useful default for substantial or risky work, not for every Issue.
+- **Decisions.** Use clickable decision cards when the surface supports them; otherwise ask one concise question with a recommendation. One bounded owner approval covers routine execution. Production, IAM, destructive, security and cost gates stay separate.
+- **Measure before sizing** hosts, limits and timeouts where real data matters.
+- **State and rebuild.** Relevant stateful IaC uses remote, locked state before the first apply. A cold-start rebuild check by a fresh agent is risk-based, not universal.
 
 ## Adoption And Pilot
 
