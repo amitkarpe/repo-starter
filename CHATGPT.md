@@ -41,7 +41,7 @@ Before a write, mutation, PR action, or implementation:
 2. compare it with the Primary Repository and any explicitly authorized related repositories when those bindings are recorded;
 3. confirm that the current Issue/PR belongs to that objective.
 
-Reading or researching other repositories is allowed. Cross-repo writes are allowed when Amit explicitly requests them or the active SPEC/Issue clearly requires them.
+Reading or researching other repositories is allowed. Cross-repo writes are allowed when Amit explicitly requests them or the active `POLICY.md`/Issue clearly allows them.
 
 If a short continuation such as `go` or `Y` points to an unrelated repository and intent is not explicit, stop with `BLOCKED_REPO_MISMATCH` and ask one short confirmation. Never bypass this guard merely because the referenced PR is the newest one.
 
@@ -61,7 +61,7 @@ ChatGPT may record when available:
 - Chat name: `<optional>`
 - Session ID or URL: `<optional>`
 
-Repository identity, the applicable SPEC/Issue, and Amit's current instruction remain authoritative when session metadata is stale or absent.
+Repository identity, `POLICY.md`, the applicable SPEC/Issue, and Amit's current instruction remain authoritative when session metadata is stale or absent.
 
 ## Local Context And Handoff Rules
 
@@ -75,7 +75,7 @@ When a manual copy/paste handoff is genuinely required, keep it self-contained a
 
 ## Local Execution Authority
 
-`SPEC.md` is the repository execution/authority contract when the work requires one. An ACTIVE SPEC/Issue may grant standing authority for explicitly bounded work.
+`POLICY.md` is the repository authority contract. It, or an Issue within it, may grant standing authority for explicitly bounded work. `SPEC.md` holds requirements.
 
 Do not infer authority from repository visibility. A private repository may be personal or work; a public repository may still have strict mutation boundaries.
 
