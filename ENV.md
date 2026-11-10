@@ -52,7 +52,7 @@ For a derived project **only**, record the selected execution route when provide
 - **Execution plane:** `SOFTWARE_ONLY | GITHUB_OIDC | CODEBUILD_SERVICE_ROLE | DIRECT_CODEX_CLOUD` (choose one in the derived project's approved scope; source template is unconfigured).
 - **Provider identity required:** `NO | YES` (software-only workflows need no provider authentication).
 - **Target reference:** `<approved private account/role record or NONE>`; reuse the provider/region selectors above.
-- **Allowed operations reference:** `<approved SPEC/Issue or NONE>`.
+- **Allowed operations reference:** `<POLICY.md row or Issue, or NONE>`.
 - **Identity status:** `NOT_REQUIRED | NOT_CONFIGURED | READY_VERIFIED | EXPIRED | ACCESS_DENIED | WRONG_ACCOUNT | UNVERIFIED`.
 - **Evidence reference:** `<sanitized receipt scoped to target, role, repository, execution plane and session, or NONE>`.
 

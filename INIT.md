@@ -2,13 +2,13 @@
 
 Status: NOT_INITIALIZED
 
-Use this file only for first-time repository setup or when Amit explicitly asks to reinitialize the project.
+Use this file only for first-time repository setup or when Amit explicitly asks to reinitialize the project. When initialization is done, move this file to `docs/archive/INIT.md`.
 
 ## First-Intent Bootstrap
 
 A new meaningful repository starts with one durable project intent before significant implementation.
 
-Do not turn this into a long questionnaire. Inspect repository/runtime truth first, then ask only what is materially unknown, normally **one question at a time**. Challenge an assumption only when it could change scope, architecture, safety, acceptance, or reproducibility.
+Follow the start ritual in the Amit core (`AGENTS.md`, section 2): a short intent interview, then discovery and inventory, then deep interview rounds with question cards (3–4 questions per card, several rounds, "🎤 I'll say it by voice" as the last option on each), then a deep plan with pictures for Amit to approve. Inspect repository and runtime truth before asking. Challenge an assumption only when it could change scope, architecture, safety, acceptance, or reproducibility.
 
 Cover these areas only as needed:
 
@@ -37,13 +37,7 @@ Before finalizing intent, ask whether unresolved uncertainty could materially ch
 
 ## Record And Accept Intent
 
-For a meaningful new repository, create:
-
-```text
-intent/0001-project-bootstrap/intent.md
-```
-
-using the format and interview protocol in `intent/README.md`.
+Write the project intent in the root `INTENT.md` (the template is there). Use `intent/README.md` for the interview protocol and the status rules. Change-level intent later goes in the owning Issue or `intent/<change>/`.
 
 Then:
 
@@ -60,19 +54,25 @@ Read-only inspection, Research / Discovery, and repository-initialization docume
 
 After the first intent is accepted, update only the files that need project-specific truth:
 
+Required:
+
 - `README.md` — purpose and start-here guidance
-- `CONTEXT.md` — repository identity, current truth, active work
-- `POLICY.md` — authority: allowed with no approval, needs the owner's word, not allowed (with enforcers), stop gates. Required; a minimal file is fine
+- `INTENT.md` — the accepted project intent
+- `POLICY.md` — authority: allowed with no approval, needs the owner's word, not allowed (with enforcers), stop gates. Replace every `<placeholder>`; a minimal file is fine. A "Text only" rule still binds and marks an enforcement gap
 - `SPEC.md` — requirements, milestones, proof
-- `ENV.md` — project runtime/tool/cloud dependencies
-- `ROADMAP.md` — only useful future milestones
+- `GOALS.md` — the first approved goal, its plan and open questions
+
+When needed:
+
+- `ENV.md` — project runtime, tool and cloud dependencies
+- `CONTEXT.md` — current state for restart, when work runs across many sessions
+
+Keep `AGENTS.md` and `CLAUDE.md` as they are, apart from repository-specific rules. Future direction goes in GitHub Issues and `GOALS.md`, not a roadmap file.
 
 Adopt the agent identity standard of [amitkarpe/agents `IDENTITY.md`](https://github.com/amitkarpe/agents/blob/main/IDENTITY.md): add the one line from its "Adopt it" section to `AGENTS.md` in this first PR (link it; do not copy the file).
 
-Derive a change-specific spec or plan only when the proportional artifact rules in `AI_NATIVE_SDLC.md` require them.
+Derive a change-specific spec or plan only when the proportional artifact rules in `docs/AI_NATIVE_SDLC.md` require them.
 
-Then set this file to:
-
-`Status: INITIALIZED`
+Then set this file to `Status: INITIALIZED` and move it to `docs/archive/INIT.md` in the same PR.
 
 Do not repeat this bootstrap for normal future work. Meaningful later changes use the Intent Gate in `AGENTS.md`; tiny/local fixes may use the owning Issue/PR when they satisfy the skip rule.
