@@ -11,7 +11,8 @@ For current work, prefer the owning GitHub Issue/PR and current HEAD. Load the o
 - `AI_NATIVE_SDLC.md` — proportional Intent -> Spec -> Plan -> Code/Test/Review lifecycle
 - `intent/README.md` — reusable Intent Gate, interview, acceptance, and first-intent record protocol
 - `CONTEXT.md` — current-only recovery state when restart/current-state context is needed
-- `SPEC.md` — execution authority and milestone contract when implementation, mutation, deployment, cleanup, or safety boundaries matter
+- `POLICY.md` — authority: what may happen with no approval, what needs the owner's word, what is not allowed, and what enforces each rule
+- `SPEC.md` — requirements, milestones and proof
 - `ENV.md` — project runtime/tool/cloud dependencies when environment facts matter
 - `CHATGPT.md` — repository-specific ChatGPT/Codex adapter, shorthand, and repository-binding guard
 - `INIT.md` — one-time initialization only
@@ -35,7 +36,8 @@ Keep root contracts separate by responsibility:
 - `AGENTS.md` — universal agent entry/router and local repository rules
 - `CHATGPT.md` — thin repository-specific ChatGPT/Codex adapter
 - `CONTEXT.md` — current-only project/repository recovery state
-- `SPEC.md` — execution authority and milestone contract when needed
+- `POLICY.md` — authority and safety contract (owner-owned)
+- `SPEC.md` — requirements and proof
 - `INIT.md` — one-time first-intent bootstrap for a new repository
 - `ENV.md` — project runtime/tool/cloud dependencies when needed
 - `ROADMAP.md` — useful future milestones, not current authority

@@ -43,7 +43,7 @@ An intentionally dependency-free project can become ready **only after its selec
 - Region: `<region or N/A>`
 - Account/environment alias: `<personal lab / dev / nonprod / prod / N/A>`
 
-Never infer execution authority from an AWS profile name. Authority comes from `SPEC.md` and the active Issue/instruction.
+Never infer execution authority from an AWS profile name. Authority comes from `POLICY.md` and the active Issue/instruction.
 
 ## Optional Provider Execution Identity
 
@@ -56,7 +56,7 @@ For a derived project **only**, record the selected execution route when provide
 - **Identity status:** `NOT_REQUIRED | NOT_CONFIGURED | READY_VERIFIED | EXPIRED | ACCESS_DENIED | WRONG_ACCOUNT | UNVERIFIED`.
 - **Evidence reference:** `<sanitized receipt scoped to target, role, repository, execution plane and session, or NONE>`.
 
-`NOT_REQUIRED` means **no provider identity is needed**, not that installation, functional checks, cloud setup or task execution passed. `READY_VERIFIED` is time- and scope-bound evidence, **not permission** to perform a new operation. Reverify identity and intended service capability when starting authorized provider work; action authority remains in the owning SPEC/Issue. Software-only tasks must not perform identity or permission probes.
+`NOT_REQUIRED` means **no provider identity is needed**, not that installation, functional checks, cloud setup or task execution passed. `READY_VERIFIED` is time- and scope-bound evidence, **not permission** to perform a new operation. Reverify identity and intended service capability when starting authorized provider work; action authority remains in `POLICY.md` and the owning Issue. Software-only tasks must not perform identity or permission probes.
 
 
 ## External Dependencies

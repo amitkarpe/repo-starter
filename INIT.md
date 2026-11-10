@@ -62,7 +62,8 @@ After the first intent is accepted, update only the files that need project-spec
 
 - `README.md` — purpose and start-here guidance
 - `CONTEXT.md` — repository identity, current truth, active work
-- `SPEC.md` — execution authority, scope, milestones, stop gates
+- `POLICY.md` — authority: allowed with no approval, needs the owner's word, not allowed (with enforcers), stop gates. Required; a minimal file is fine
+- `SPEC.md` — requirements, milestones, proof
 - `ENV.md` — project runtime/tool/cloud dependencies
 - `ROADMAP.md` — only useful future milestones
 

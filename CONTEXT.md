@@ -25,7 +25,7 @@ Status: NOT_INITIALIZED
 
 ## Next Action
 
-- Run the short `INIT.md` interview, then update project identity, `SPEC.md`, `ENV.md`, README purpose, and the first useful milestone.
+- Run the short `INIT.md` interview, then update project identity, `POLICY.md`, `SPEC.md`, `ENV.md`, README purpose, and the first useful milestone.
 
 ## Restart
 

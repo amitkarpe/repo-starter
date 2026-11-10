@@ -12,9 +12,10 @@ Use this order when the agent has no reliable current context, is recovering fro
 2. `INIT.md` when the repository is new, initialization may be incomplete, or the project purpose is not yet settled
 3. the owning GitHub Issue/PR when active work exists
 4. `CONTEXT.md` only when restart/current-state recovery is needed
-5. `SPEC.md` when implementation, mutation, deployment, cleanup, authority, or safety boundaries matter
-6. `ENV.md` when runtime, cloud, host, profile, or tool facts matter
-7. `CHATGPT.md` when ChatGPT/Codex adapter or repository-binding details matter
+5. `POLICY.md` when an action could mutate, deploy, delete, publish, merge, or touch credentials, cloud, or `PROD` (it owns authority)
+6. `SPEC.md` when requirements, milestones, or proof matter
+7. `ENV.md` when runtime, cloud, host, profile, or tool facts matter
+8. `CHATGPT.md` when ChatGPT/Codex adapter or repository-binding details matter
 
 If `INIT.md` says `NOT_INITIALIZED`, complete the first-intent bootstrap before significant implementation.
 
@@ -30,7 +31,7 @@ A URL or automatically loaded `AGENTS.md` is **not** proof that a linked
 external file was read. Report an inaccessible reference honestly.
 
 Skip this extra read for unrelated tasks and verified unchanged warm context.
-The owning repository's `AGENTS.md`, applicable `SPEC.md`, authorized
+The owning repository's `AGENTS.md`, `POLICY.md`, applicable `SPEC.md`, authorized
 Issue/PR, and selected route-specific adapter remain binding; reusable Agent OS
 guidance does not create new permissions or mandatory Factory/G review.
 
@@ -113,7 +114,7 @@ Do not reread all root context files before every PR, handoff, or continuation.
 - Follow [amitkarpe/agents `IDENTITY.md`](https://github.com/amitkarpe/agents/blob/main/IDENTITY.md): the full identity header on new Issues, PRs, handoffs, environment changes and questions in another repository; the short header on routine replies.
 - Update `CONTEXT.md` only when repository identity, current truth, active Issue/PR, blocker, or next action must be preserved for recovery.
 - Move completed/history detail to Git history, closed Issues/PRs, or `docs/history/` when the repository uses one.
-- Use `SPEC.md` as the repository execution/authority contract when the work needs one. Proceed inside an ACTIVE approved scope and stop on a genuine safety, scope, authorization, repository-identity, access, or validation failure.
+- `POLICY.md` is the repository authority contract; `SPEC.md` holds requirements and proof. Proceed inside the authority that `POLICY.md` grants and stop at its stop gates.
 - Prefer one cohesive PR with related phases/tasks over micro-PRs. Small isolated fixes may remain small.
 - At PR/Issue closeout, inspect secondary Git worktrees and remove only completed, clean, unused checkouts with merged/preserved work and no active X/rollback dependency. Use native `git worktree remove` (no force/`rm -rf`); preserve dirty, active, unmerged or uncertain work. Batch safe cleanup when useful. Remote branches and cloud resources are separate authority. [Canonical Agent OS default](https://github.com/amitkarpe/agent-os/blob/main/AGENTS.md#portfolio-economy-defaults).
 - When context is materially stale, incomplete, contradictory, or unsafe to reuse, rebuild it from current repository/GitHub truth instead of relying on old conversation memory.
@@ -125,7 +126,7 @@ Do not reread all root context files before every PR, handoff, or continuation.
 
 When configured, use `~/.agents/AGENTS.md` from the verified canonical `amitkarpe/agents` checkout for portable guidance, and `~/.config/agent/HOST.md` for active host facts. Required local exceptions stay in the owning host/provider configuration. Tool homes such as `~/.codex/` remain tool-specific adapters/runtime state.
 
-Agent OS is reusable guidance, never automatic project authority. Current user instruction plus this repository's local rules, applicable `SPEC.md`, owning Issue/PR, and project context take precedence.
+Agent OS is reusable guidance, never automatic project authority. Current user instruction plus this repository's `POLICY.md`, local rules, applicable `SPEC.md`, owning Issue/PR, and project context take precedence.
 
 ## Portfolio Economy Defaults
 

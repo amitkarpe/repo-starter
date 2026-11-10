@@ -37,7 +37,7 @@ Choose development tools separately from the hosting/build destination. GitHub P
 
 ### Provider identity is a separate, optional decision
 
-When provider access is needed, the derived project's [`ENV.md`](../ENV.md) may record the **execution plane**, whether identity is required, a reference to approved target/role details, the allowed-operations Issue/SPEC and a scoped evidence receipt. Software/tool readiness, provider identity, service capability and **authorization to act** are distinct. A `SOFTWARE_ONLY` project does not authenticate or run provider probes.
+When provider access is needed, the derived project's [`ENV.md`](../ENV.md) may record the **execution plane**, whether identity is required, a reference to approved target/role details, the allowed operations in `POLICY.md` or the Issue and a scoped evidence receipt. Software/tool readiness, provider identity, service capability and **authorization to act** are distinct. A `SOFTWARE_ONLY` project does not authenticate or run provider probes.
 
 For separately approved AWS CI operations, prefer existing reviewed GitHub Actions with narrowly scoped OIDC roles. CodeConnections grants CodeBuild access to GitHub **source**, not AWS caller authority; CodeBuild uses its own service role. Direct Codex Cloud identity remains **unproven** until the selected runtime supports and verifies an appropriate short-lived mechanism. No route silently creates IAM roles, CI workflows, connections or infrastructure. For any later OIDC trust, check the actual issuer, audience, subject and exact repository/environment restrictions against current official documentation.
 

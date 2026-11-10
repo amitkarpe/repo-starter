@@ -1,0 +1,78 @@
+# Policy
+
+Status: `<DRAFT | ACTIVE>`, accepted by `<owner>`, `<date>`. **The owner owns this file.**
+
+`POLICY.md` decides authority: what an agent may do, what needs the owner's word, and what is not allowed. `SPEC.md` decides requirements. `INTENT` (see `intent/`) decides why and what.
+
+Precedence:
+
+- Real controls (IAM, SCP, platform and organization rules) always govern. Text cannot widen them.
+- The owner's newer direct words win for the exact action that they name.
+- If in doubt, do not act on the wider reading. Ask, or take the narrower action.
+
+Keep this file short (about 40–80 lines). Use plain, short sentences. One fact has one home: link to other files; do not copy them.
+
+## Principles
+
+- KISS: do the smallest thing that gives a strong, useful result.
+- Read first, change second. Fail closed when identity, account, environment or target is not certain.
+- Proof means a real readback, not only a passing local test.
+- A rule that must always hold needs an enforcer. A rule with no enforcer still binds; mark it "Text only" so the gap is visible.
+- `<Add project principles. Delete this line if there are none.>`
+
+## Allowed with no approval
+
+| Action | Limit |
+|---|---|
+| Read anything in scope (code, Issues, logs, cloud state) | Read-only |
+| Local setup, builds, tests and checks | This repository and its local caches |
+| Branches, commits, PRs and Issues in this repository | No force push. No bypass of a platform control |
+| `<Example: create and change cloud resources>` | `<Account alias, Region, name prefix. PERSONAL LAB/DEV only>` |
+
+For `PERSONAL` + `LAB`/`DEV`, the owner may grant standing authority for repo-owned work: deploy, create, change, reset and clean up, with no approval for each resource. For `WORK`, and always for `PROD`, grant only the exact authority intended.
+
+Repository visibility is not an authority signal. Private does not mean personal. Public does not mean unrestricted.
+
+## Needs the owner's word
+
+| Action | Why |
+|---|---|
+| Merge a PR | `<Delete this row if the owner grants merge in the table above>` |
+| Any `PROD` change | High risk |
+| New or wider IAM, credentials or stored secrets | Trust boundary |
+| Delete data, state, shared resources or another team's resources | Cannot be undone |
+| Publish or expose anything publicly | Public output |
+| Material cost | Budget |
+
+## Not allowed
+
+| Rule | Enforced by |
+|---|---|
+| No secrets, keys, tokens or auth state in Git, files, logs or chat. Never print a secret value | `<GitHub secret scanning, .gitignore, hook>` |
+| No force push. No `--admin` merge | `<Branch protection, or "Text only">` |
+| No change to resources of other teams | Text only |
+| `<Add hard boundaries for this project>` | `<IAM / SCP / hook / code check / Text only>` |
+
+Name the exact scope of each enforcer. An account check at the start of a job is not a sandbox for later commands. A keyword filter is not full secret isolation.
+
+## How we work
+
+- When the intent is ACCEPTED and the work is in scope, continue the whole goal: discover → build → focused check → one cohesive PR → merge only when allowed above → evidence → continue. Do not ask again for each routine step.
+- Intent acceptance and an ACTIVE `SPEC.md` never grant merge, cloud, `PROD`, IAM or destructive authority by themselves. Only this file, or the owner's current words, can do that.
+- When a tool seems missing, check the installed and signed-in CLIs (`gh`, `glab`, `aws`) before you say that access is not available. Being signed in is not permission.
+- For long tasks, record durable run IDs. Check the existing run before a retry.
+- Escalate one specific owner decision, with evidence, after all useful in-scope work is done. Never self-approve credentials, `PROD`, destructive changes, public exposure, wide IAM or unbounded cost.
+
+## Stop gates
+
+Stop and ask only at a real boundary:
+
+- the repository, account or environment does not match the approved scope;
+- the work would enter `PROD` or a higher-risk environment without authority;
+- data loss, a credential change, public exposure or material cost is not approved;
+- the change would widen the architecture or a trust boundary beyond the milestone;
+- a required check fails, or the current state is unclear or unsafe.
+
+## Exceptions
+
+`<Record each owner-approved exception: what, who approved, when, and its limit. Delete this section if there are none.>`

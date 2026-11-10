@@ -16,7 +16,7 @@ The agent should help the originator think clearly without turning the interacti
 6. **Restate before acceptance** — summarize the proposed intent and invite correction.
 7. **Require explicit originator acceptance** — the agent cannot self-approve intent.
 
-Intent acceptance is not execution authority. Existing `SPEC.md`, user instructions, environment approvals, and safety gates still control mutation.
+Intent acceptance is not execution authority. `POLICY.md`, user instructions, environment approvals, and safety gates still control mutation.
 
 ## Intent Status
 

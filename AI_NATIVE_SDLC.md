@@ -33,7 +33,7 @@ The agent should inspect known truth, interview only unresolved material points,
 
 The agent may draft or structure the intent, but it cannot self-approve it. Record `Status: ACCEPTED` only after explicit originator acceptance exists in the owning conversation or GitHub record.
 
-Intent acceptance confirms the desired outcome and boundaries. It does **not** grant cloud, PROD, IAM, network, destructive, sensitive-data, or other mutation authority; those remain governed by the repository execution contract and current user/environment approval.
+Intent acceptance confirms the desired outcome and boundaries. It does **not** grant cloud, PROD, IAM, network, destructive, sensitive-data, or other mutation authority; those remain governed by `POLICY.md` and current user/environment approval.
 
 Tiny/local fixes that satisfy the exact skip rule may use a sufficient Issue/PR directly.
 
@@ -88,7 +88,7 @@ intent/<change>/
 
 `intent.md` preserves the originator's intent; AI may structure it, but must not silently replace the desired outcome.
 
-The change-specific `spec.md` defines what must be true for that change. It does **not** replace the root `SPEC.md`, which remains the repository-level execution, authority, and safety contract.
+The change-specific `spec.md` defines what must be true for that change. It does **not** replace the root `SPEC.md` (repository requirements) or the root `POLICY.md` (repository authority and safety contract).
 
 The change-specific `plan.md` defines how the approved specification will be implemented and proven. It is not a second roadmap.
 
