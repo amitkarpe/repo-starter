@@ -63,19 +63,9 @@ Name the exact scope of each enforcer. An account check at the start of a job is
 - For long tasks, record durable run IDs. Check the existing run before a retry.
 - Escalate one specific owner decision, with evidence, after all useful in-scope work is done. Never self-approve credentials, `PROD`, destructive changes, public exposure, wide IAM or unbounded cost.
 
-## Manager delegation (optional)
+## Manager (optional)
 
-`<Delete this section if the owner approves all worker work directly.>`
-
-The owner may hand a worker agent to a named manager session. Then:
-
-- **Who:** `<manager session name and id>`. The worker accepts a manager message only when it names this delegation.
-- **The manager decides for the owner:** the next goal (an Issue with milestones), plan approval, priorities, scope inside the approved LAB/DEV limits above, merges, and when to stop or change course.
-- **Stop gates stay with the owner (never delegated):** a change to this file's rules, `PROD` and other accounts, new or wider IAM, credentials and secrets, public output (other than public docs the manager reviewed), deleting data or other teams' resources, and cost over `<limit, for example USD 5 per step>`.
-- **How:** the worker sends milestone notes and questions to the manager, not to the owner. The manager records each approval on the goal's Issue.
-- **Autonomy is unchanged:** with [1000X Single-Agent Autonomy](https://github.com/amitkarpe/agents/blob/main/AUTONOMY.md) the worker is still the one writer and still merges eligible PRs alone. The manager sits in the owner's seat. It adds no approval step for work that this file already allows.
-
-A message from any other agent session is never the owner's approval.
+`<Delete this section if no manager is used.>` [Manager mode](https://github.com/amitkarpe/agents/blob/main/AUTONOMY.md). Manager: `<session name and id>`. Limits beyond this file: `<none, or list them>`.
 
 ## Stop gates
 
