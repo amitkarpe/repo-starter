@@ -40,6 +40,8 @@ Lines that end with a `private` marker stay out of the public copy.
 - **Plain, short English** (ASD-STE100 style): short sentences, simple words,
   full terms the first time ("development environment", not only "DEV").
 - On Remote Control, send files (pictures, MP4s, reports) to his phone.
+- **Time in SGT.** Every time you write for Amit is Singapore time and says
+  so (`21:13 SGT`). Convert UTC (`Z`) from tools before you report it.
 - **Long runs.** For work that takes a while, show timestamped state changes so
   he can see it is moving. Keep raw poll logs in files; report only changes and
   the end result.
@@ -69,12 +71,11 @@ After Amit approves a plan, the agent works with no further clicks:
 - record progress in the repo's `GOALS.md`;
 - send a short note at each milestone, not a question.
 
-**Manager delegation** (Amit approved, 10 Nov 2026). Amit may hand a worker
-to a manager session. Then the manager approves for him: the worker's next goal
-(an Issue with milestones), its plans, PRs, merges and LAB deploys. The worker
-accepts it when the manager's Issue or message names the delegation, and it
-reports and asks the manager, not Amit. The manager reviews public PRs for
-private data before merging. Stop gates are never delegated.
+**Manager mode** (Amit, 10 Nov 2026). Amit may name a manager session for his
+workers. Each worker runs its goal end to end with no plan approval. The manager
+picks the next goal while Amit is away, answers worker questions, and brings stop
+gates to Amit. When Amit answers one in the manager chat, the manager records his
+words on the Issue or PR and does that step itself. Rule: `~/.agents/AUTONOMY.md`.
 
 **Stop gates** (Amit's own word in chat each time): PROD, office accounts, new
 or wider IAM, credentials or secrets, anything public (other than reviewed
