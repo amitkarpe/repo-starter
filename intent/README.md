@@ -1,15 +1,15 @@
 # Intent Workflow
 
-Use this directory for durable intent records when a meaningful project or change needs more context than the owning GitHub Issue/PR can hold cleanly.
+The project intent lives in the root `INTENT.md`. Use this directory only for change-level intent records, when a meaningful change needs more context than the owning GitHub Issue/PR can hold cleanly.
 
-Do not create intent files for tiny/local fixes that satisfy the skip rule in `AI_NATIVE_SDLC.md`.
+Do not create intent files for tiny/local fixes that satisfy the skip rule in `docs/AI_NATIVE_SDLC.md`.
 
 ## Interview Protocol
 
 The agent should help the originator think clearly without turning the interaction into paperwork.
 
 1. **Inspect first** — read the current repository, Issue/PR, and relevant runtime/environment truth before asking questions.
-2. **Ask only unresolved material questions** — normally one question at a time.
+2. **Ask only unresolved material questions** — with question cards, 3–4 questions per card, in rounds; the last option is always "🎤 I'll say it by voice".
 3. **Challenge selectively** — question assumptions only when they could change scope, architecture, safety, acceptance, or reproducibility.
 4. **Use Research / Discovery conditionally** — research outside-in uncertainty; discover inside-out current-state uncertainty.
 5. **Preserve nuance** — keep the originator's important words and distinguish verified facts from assumptions.
@@ -30,15 +30,9 @@ When setting `ACCEPTED`, record both the acceptance evidence and the exact accep
 
 If a material change is made after that accepted revision — especially to the desired outcome, scope, constraints, safety/authority boundaries, or acceptance — return the intent to `DRAFT` or `READY_FOR_REVIEW` and obtain renewed originator acceptance before implementing the changed intent. Metadata-only edits that do not change the intent do not require re-acceptance.
 
-## First Project Intent
+## Project Intent vs Change Intent
 
-A meaningful new repository normally starts with:
-
-```text
-intent/0001-project-bootstrap/intent.md
-```
-
-Create it during `INIT.md` initialization. Do not pre-create an empty file in the template.
+The first project intent goes in the root `INTENT.md`, written during `INIT.md` initialization. Change-level records in this directory use `intent/<NNNN-short-name>/intent.md`.
 
 ## Intent Record
 

@@ -4,19 +4,22 @@ One sentence explaining the problem this repository solves.
 
 ## Start Here
 
-For agents, `AGENTS.md` is the single read router. It defines the cold-start/recovery order and when other repository contracts must be loaded.
+For agents, `AGENTS.md` is the single entry point (Claude Code reaches it through `CLAUDE.md`). It carries a copy of the Amit core, so every agent, including cloud agents, knows how Amit works.
 
-For current work, prefer the owning GitHub Issue/PR and current HEAD. Load the other root files only for the responsibility they own:
-
-- `AI_NATIVE_SDLC.md` — proportional Intent -> Spec -> Plan -> Code/Test/Review lifecycle
-- `intent/README.md` — reusable Intent Gate, interview, acceptance, and first-intent record protocol
-- `CONTEXT.md` — current-only recovery state when restart/current-state context is needed
-- `POLICY.md` — authority: what may happen with no approval, what needs the owner's word, what is not allowed, and what enforces each rule
-- `SPEC.md` — requirements, milestones and proof
-- `ENV.md` — project runtime/tool/cloud dependencies when environment facts matter
-- `CHATGPT.md` — repository-specific ChatGPT/Codex adapter, shorthand, and repository-binding guard
-- `INIT.md` — one-time initialization only
-- `ROADMAP.md` — useful future direction, not current authority
+| File | Job | Needed |
+|---|---|---|
+| `README.md` | What this is, for people | Always |
+| `AGENTS.md` | Agent entry: the Amit core, read order, rules | Always |
+| `CLAUDE.md` | One line: `@AGENTS.md`, so Claude Code loads it | Always |
+| `INTENT.md` | Why and what, accepted by the owner | Always |
+| `POLICY.md` | The one authority source: allowed, needs the owner's word, not allowed, stop gates | Always |
+| `SPEC.md` | Requirements and proof | Always |
+| `GOALS.md` | The live goal, plan, questions for the owner, progress | Always |
+| `ENV.md` | Runtime, tool and cloud facts | When needed |
+| `CONTEXT.md` | Current state for restart across many sessions | When needed |
+| `INIT.md` | One-time setup; moves to `docs/archive/` when done | New repos only |
+| `intent/` | Change-level intent records | When a change needs one |
+| `docs/` | Lifecycle (`docs/AI_NATIVE_SDLC.md`), cloud setup, runbooks, `docs/archive/` | On a trigger |
 
 For optional laptop-free deployment of a Codex Cloud app, see [Cloud-first quickstart](docs/CLOUD_FIRST_QUICKSTART.md). It is a reference workflow, not an extra approval or bootstrap gate.
 
@@ -31,19 +34,12 @@ Do not use this README as a second copy of the agent bootstrap policy.
 
 ## Template Model
 
-Keep root contracts separate by responsibility:
+One fact has one home. Authority lives only in `POLICY.md`; requirements in `SPEC.md`; the why in `INTENT.md`; the live work in `GOALS.md`. Files that are no longer used move to `docs/archive/`; nothing useful is deleted.
 
-- `AGENTS.md` — universal agent entry/router and local repository rules
-- `CHATGPT.md` — thin repository-specific ChatGPT/Codex adapter
-- `CONTEXT.md` — current-only project/repository recovery state
-- `POLICY.md` — authority and safety contract (owner-owned)
-- `SPEC.md` — requirements and proof
-- `INIT.md` — one-time first-intent bootstrap for a new repository
-- `ENV.md` — project runtime/tool/cloud dependencies when needed
-- `ROADMAP.md` — useful future milestones, not current authority
+The Amit core is written once, in Amit's private dotfiles (`~/.config/agent/CORE.md`), and loads at every launch on his machines. `AGENTS.md` holds its public copy (between the `AMIT-CORE` markers) for cloud agents; refresh that block from `CORE.public.md` when the core changes.
 
 Historical detail belongs in Git history, closed Issues/PRs, or `docs/history/` when needed — not in `CONTEXT.md`.
 
-Reusable cross-project policy belongs in the canonical `amitkarpe/agents` repository, read locally from its verified `~/.agents/` checkout, and should normally be referenced rather than recopied here. Machine-specific facts belong in the active `~/.config/agent/HOST.md` when available.
+Reusable cross-project policy belongs in the canonical `amitkarpe/agents` repository, read locally from `~/.agents/` (kept current at session start), and should normally be referenced rather than recopied here. Machine-specific facts belong in the active `~/.config/agent/HOST.md` when available.
 
 Preserve useful local knowledge. Context-loading economy means reading the right file at the right time, not deleting information.

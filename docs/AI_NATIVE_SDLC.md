@@ -123,7 +123,7 @@ GitHub Issue/PR remains the normal workflow, authority, coordination, and eviden
 
 ## Project start vs goal start
 
-A **new project** starts in [`INIT.md`](INIT.md) with iterative intent,
+A **new project** starts in [`INIT.md`](../INIT.md) with iterative intent,
 feasibility and owner acceptance before significant implementation. A **new
 Goal** in an **initialized** repository starts from its owning Issue and a preflight
 scaled to risk; tiny local fixes retain the skip rule above. Follow the
