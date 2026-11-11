@@ -253,6 +253,7 @@ Do not reread all root files before every PR, handoff or continuation.
   with merged or preserved work, using `git worktree remove` (no force, no
   `rm -rf`). Remote branches and cloud resources are separate authority.
   ([Agent OS default](https://github.com/amitkarpe/agent-os/blob/main/AGENTS.md#portfolio-economy-defaults))
+- At every closeout, also follow the [Closeout cleanup checklist](https://github.com/amitkarpe/agents/blob/main/AGENTS.md#closeout-cleanup) and end the report with `Deleted: ...; Kept: ... (why)`.
 - When context is stale, incomplete, contradictory or unsafe, rebuild it from
   current repository and GitHub truth, not old conversation memory.
 - Before a write to another repository, confirm that the target repository is
