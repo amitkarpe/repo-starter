@@ -251,7 +251,7 @@ Do not reread all root files before every PR, handoff or continuation.
   fixes may stay small.
 - At PR or Issue closeout, remove only completed, clean, unused Git worktrees
   with merged or preserved work, using `git worktree remove` (no force, no
-  `rm -rf`). Remote branches and cloud resources are separate authority.
+  `rm -rf`). Remote branches and cloud resources follow the Closeout cleanup checklist below.
   ([Agent OS default](https://github.com/amitkarpe/agent-os/blob/main/AGENTS.md#portfolio-economy-defaults))
 - At every closeout, also follow the [Closeout cleanup checklist](https://github.com/amitkarpe/agents/blob/main/AGENTS.md#closeout-cleanup) and end the report with `Deleted: ...; Kept: ... (why)`.
 - When context is stale, incomplete, contradictory or unsafe, rebuild it from
