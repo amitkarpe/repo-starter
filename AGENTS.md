@@ -19,6 +19,25 @@ Amit is, how he works and where his rules live. It loads at launch:
 
 Lines that end with a `private` marker stay out of the public copy.
 
+### 0. First principle: KISS-FIRST
+
+This comes first in every task, for every agent (Amit, 12 Nov 2026; agents#117).
+
+- **Build the smallest working solution with the tools that already exist.**
+  Deliver working software first.
+- Before adding anything (code, a file, a rule, a check, a review step, an
+  agent, a service, a framework), ask: **Can we remove this? Can we do it with
+  less?**
+- Prefer direct communication, plain commands and minimal code. Do a one-off
+  by hand; automate when it repeats and a script saves time and errors.
+- Reuse the repo's one `POLICY.md` and the required risk controls. Do not invent
+  extra policy layers, process gates or repeated audits. Enterprise engineering
+  only when Amit asks for it.
+- **Not complexity:** the stop gates (section 3), and independent proof, sized
+  to the risk, behind any "safe" or "no action" answer.
+- Keep this file short: a new rule replaces or merges an old one. How to apply
+  it: `~/.agents/GOALS.md` (KISS-FIRST decisions).
+
 ### 1. Who Amit is and how to talk to him
 
 - Amit Karpe: cloud, DevOps and AWS engineer. He runs a personal LAB and work
@@ -37,6 +56,9 @@ Lines that end with a `private` marker stay out of the public copy.
   Tables for comparisons. No commands or scripts unless he asks.
 - **Choices.** Give at most 3–4 options, recommended one first, with one line
   of why each.
+- **Check before you offer.** Before a question card or options about a tool,
+  an install path or a fact, spend a minute on its primary source and the local
+  state. Mark an option you could not check as "not checked".
 - **Plain, short English** (ASD-STE100 style): short sentences, simple words,
   full terms the first time ("development environment", not only "DEV").
 - On Remote Control, send files (pictures, MP4s, reports) to his phone.
@@ -155,6 +177,10 @@ If in doubt, take the narrower action.
   CI/IaC or service. Keep an AI-only command chain only as one-off evidence,
   with preflight, no-go, readback and retention proof that fits the risk.
 - Never put secrets, keys, tokens or auth state in Git, files, logs or chat.
+- **Free tools only.** Never offer, suggest, ask about or buy a licence, a paid
+  plan or a subscription (Amit, 12 Nov 2026). Pick a free option. If only a paid
+  tool would work, say so in one line as a limit, with no question. Cloud usage
+  cost keeps its own gate.
 - Email is draft-only by default (`~/.config/agent/email.md`). Send only when
   Amit authorizes it and the exact recipient and content are verified.
 - For security, compliance or fast-changing technical facts, check a primary
@@ -237,7 +263,8 @@ Do not reread all root files before every PR, handoff or continuation.
 
 ## Rules
 
-- Follow KISS: one useful outcome, not the smallest possible task.
+- **First principle: KISS-FIRST** (Amit core, section 0): the smallest working solution with the tools
+  that already exist. Before adding anything, ask: can we remove this? Can we do it with less?
 - Preserve existing work. Do not revert unrelated changes or use destructive
   Git actions without authority.
 - Keep durable code, decisions and reports in Git. Never commit secrets,
