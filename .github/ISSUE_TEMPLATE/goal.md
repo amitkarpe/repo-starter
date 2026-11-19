@@ -52,6 +52,6 @@ labels: goal
 - [ ] Each acceptance criterion linked to its evidence
 - [ ] Tests and CI green at the merged head
 - [ ] Runtime or lab proof when state matters; cleanup read back
-- [ ] Pictures for a visible change; the owner's look for a release
+- [ ] Pictures for a visible change; a release page for a release (the owner looks only where the authority file names a gate)
 - [ ] Docs and GOALS.md updated (order moved)
 - [ ] Lessons: keep, stop, change
