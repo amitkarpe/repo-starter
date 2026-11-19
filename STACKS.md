@@ -4,7 +4,7 @@ Status: `<DRAFT | ACCEPTED>`
 Accepted by: `<owner>`, `<date>`, `<link to the acceptance>`, revision `<commit SHA>` (the agent never accepts)
 
 This repository's technology choices, one row per capability. Fill it in during
-`INIT.md` and `INTENT.md`. When the first real implementation or POC lands, it
+`INIT.md` and `INTENT.md`. When the first real implementation lands, it
 grows into this repository's `ARCHITECTURE.md` (see the end of this file).
 
 **Start from the shared map:** [amitkarpe/agents `STACKS.md`](https://github.com/amitkarpe/agents/blob/main/STACKS.md)
