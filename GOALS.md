@@ -4,16 +4,19 @@ The live page for this repository: what is being done now, what is next, and
 what the agent needs from the owner. The agent updates it at each milestone.
 It records the goal; it grants no authority (`POLICY.md` does).
 
-## Goal
+## Order
 
-`<The current approved goal in 1–2 lines.>` — approved by `<owner>`, `<date>`, `<link>`
+Read this first, at every start ([Planning Protocol](https://github.com/amitkarpe/agents/blob/main/PLANNING.md)).
+Each goal is one Issue with 5 milestones, made from the `Goal` Issue template.
 
-## Plan
+| # | Goal | Issue | State |
+|---|---|---|---|
+| 1 | `<current goal>` | `<link>` | active |
+| 2 | `<next goal>` | `<link>` | ready (accepted) |
+| 3 | `<goal after>` | `<link>` | ready (accepted) |
+| later | `<later goals>` | `<links>` | idea |
 
-| Phase | Outcome | State |
-|---|---|---|
-| 1 | `<outcome>` | `<done / active / next>` |
-| 2 | `<outcome>` | `<next>` |
+Release plan: `<v0.N.0 = goals …>`
 
 ## Questions for the owner
 
