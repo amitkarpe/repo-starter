@@ -1,6 +1,7 @@
 # Stacks
 
 Status: `<DRAFT | ACCEPTED>`
+Accepted by: `<owner>`, `<date>`, `<link to the acceptance>`, revision `<commit SHA>` (the agent never accepts)
 
 This repository's technology choices, one row per capability. Fill it in during
 `INIT.md` and `INTENT.md`. When the first real implementation or POC lands, it
@@ -19,7 +20,8 @@ already proves.
   README are not proof. **Unknown = Assess.**
 - **Trace every choice.** The "Map row" column names the shared-map row and
   proof entry (for example "Hosting, P8"). A choice not in the map is new: mark
-  it Assess until a POC proves it, then add the row to the shared map.
+  it Assess until a POC proves it, then propose the row for the shared map
+  (see the last step below).
 - **No secret values here.** Name the approach (for example "home `.env`,
   read from the environment"), never a key.
 - A choice that needs cloud, spend, a real outbound send or credentials still
@@ -60,4 +62,6 @@ already proves.
 4. **From then on,** change `ARCHITECTURE.md`. At each goal close-out, copy any
    new or changed verdict back to the shared map
    ([agents `STACKS.md`](https://github.com/amitkarpe/agents/blob/main/STACKS.md))
-   in the same turn, with proof.
+   in the same turn, with proof. This writes to another repository: do it only
+   where `POLICY.md` or the owner's words allow it; otherwise put the verdict
+   in the goal Issue and say so.

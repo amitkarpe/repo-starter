@@ -205,7 +205,8 @@ cold start or recovery, read in this order and stop when you have enough:
 7. `SPEC.md` when requirements, milestones or proof matter
 8. `ENV.md` and `CONTEXT.md`, when present and when runtime facts or restart
    state matter
-9. `docs/` only on a concrete trigger (for example `docs/AI_NATIVE_SDLC.md`
+9. `STACKS.md` (later `ARCHITECTURE.md`) when technology choices matter
+10. `docs/` only on a concrete trigger (for example `docs/AI_NATIVE_SDLC.md`
    for the full lifecycle, `docs/CLOUD_SETUP.md` for cloud onboarding)
 
 ## Start ritual and intent
