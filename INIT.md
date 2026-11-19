@@ -61,6 +61,7 @@ Required:
 - `POLICY.md` — authority: allowed with no approval, needs the owner's word, not allowed (with enforcers), stop gates. Replace every `<placeholder>`; a minimal file is fine. A "Text only" rule still binds and marks an enforcement gap
 - `SPEC.md` — requirements, milestones, proof
 - `GOALS.md` — the first approved goal, its plan and open questions
+- `STACKS.md` — fill the technology choices per capability from the [shared map](https://github.com/amitkarpe/agents/blob/main/STACKS.md); it grows into `ARCHITECTURE.md` at the first real implementation
 
 When needed:
 

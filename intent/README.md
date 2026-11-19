@@ -30,6 +30,10 @@ When setting `ACCEPTED`, record both the acceptance evidence and the exact accep
 
 If a material change is made after that accepted revision — especially to the desired outcome, scope, constraints, safety/authority boundaries, or acceptance — return the intent to `DRAFT` or `READY_FOR_REVIEW` and obtain renewed originator acceptance before implementing the changed intent. Metadata-only edits that do not change the intent do not require re-acceptance.
 
+## Stack Choices
+
+Technology choices are part of intent discovery. Read the shared map ([agents `STACKS.md`](https://github.com/amitkarpe/agents/blob/main/STACKS.md)) first, record the repository's choices in root `STACKS.md`, and let the owner accept them with the intent. That file becomes `ARCHITECTURE.md` at the first real implementation.
+
 ## Project Intent vs Change Intent
 
 The first project intent goes in the root `INTENT.md`, written during `INIT.md` initialization. Change-level records in this directory use `intent/<NNNN-short-name>/intent.md`.
