@@ -37,7 +37,7 @@ Before finalizing intent, ask whether unresolved uncertainty could materially ch
 
 ## Record And Accept Intent
 
-Write the project intent in the root `INTENT.md` (the template is there). Use `intent/README.md` for the interview protocol and the status rules. Change-level intent later goes in the owning Issue or `intent/<change>/`.
+Write the project intent in the root `INTENT.md` (the template is there). Before acceptance, also fill root `STACKS.md` (technology choices per capability, from the [shared map](https://github.com/amitkarpe/agents/blob/main/STACKS.md)); the owner accepts it together with the intent, and it grows into `ARCHITECTURE.md` at the first real implementation. Use `intent/README.md` for the interview protocol and the status rules. Change-level intent later goes in the owning Issue or `intent/<change>/`.
 
 Then:
 
