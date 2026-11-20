@@ -307,5 +307,7 @@ available and kept current at session start. Cloud agents without those folders
 use the core copy above and the GitHub links. Agent OS is reusable guidance,
 never project authority.
 
+**Agent rules are private.** `amitkarpe/agents` is a private repository (goal R, 20 Nov 2026), so links to it return 404 without access to it; this file's core copy stays readable.
+
 Testing and runner economy follow the [Agent OS Portfolio Economy Defaults](https://github.com/amitkarpe/agent-os/blob/main/AGENTS.md#portfolio-economy-defaults).
 Add repository-specific exceptions here only when this repository needs them.
