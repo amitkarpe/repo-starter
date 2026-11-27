@@ -36,10 +36,10 @@ Do not use this README as a second copy of the agent bootstrap policy.
 
 One fact has one home. Authority lives only in `POLICY.md`; requirements in `SPEC.md`; the why in `INTENT.md`; the live work in `GOALS.md`. Files that are no longer used move to `docs/archive/`; nothing useful is deleted.
 
-The Amit core is written once, in Amit's private dotfiles (`~/.config/agent/CORE.md`), and loads at every launch on his machines. `AGENTS.md` holds its public copy (between the `AMIT-CORE` markers) for cloud agents; refresh that block from `CORE.public.md` when the core changes.
+The Amit core is written once, in the private `amitkarpe/agents` repository (`~/.agents/config/CORE.md`), and loads at every launch on his machines. `AGENTS.md` only points to it; never paste a copy, because a copy goes stale.
 
 Historical detail belongs in Git history, closed Issues/PRs, or `docs/history/` when needed — not in `CONTEXT.md`.
 
-Reusable cross-project policy belongs in the canonical `amitkarpe/agents` repository, read locally from `~/.agents/` (kept current at session start), and should normally be referenced rather than recopied here. Machine-specific facts belong in the active `~/.config/agent/HOST.md` when available.
+Reusable cross-project policy belongs in the canonical `amitkarpe/agents` repository, read locally from `~/.agents/` (kept current at session start), and should normally be referenced rather than recopied here. Machine-specific facts belong in the active `~/.agents/host/HOST.md` when available.
 
 Preserve useful local knowledge. Context-loading economy means reading the right file at the right time, not deleting information.
